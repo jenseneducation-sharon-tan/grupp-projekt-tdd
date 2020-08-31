@@ -1,0 +1,76 @@
+Krav specifikation (webshop - frukter)
+
+Utvecklares prespektiv
+1) Ska ha 4 sidor - Home, Description, Shopping bag, Thank You 
+2) Ska ha färger grön, gul, pastelfärger
+3) Ska ha bilder får 8 produkter i listan
+4) Ska ha fungerade knappar 
+5) Reponsiv design - mobilvy
+
+
+Användares prespektiv
+---- Home view -----
+1) Ska kunna se header, produklistan, footer när man ladda upp sidan
+2) Ska kunna se 8 produkter i produktlistan
+3) Ska kunna söka 'Banan' från produktlistan
+4) Ska kunna lägga till och öka antalet med 1 i cart ikonen när man klickar '+' banan  
+5) Ska kunna minska antalet 'Banan' från 2 till 1 från varukorg
+6) Ska kunna klicka på 'Banan' och går till Description vy
+8) Ska kunna klicka på cart icon och går till Shopping bag vy
+
+---- Description view -----
+1) Ska kunna se mer info om banan
+2) Ska kunna se att man har beställt 2st banan
+3) Ska kunna se 2st minskat till 1st när jag klicka på ' - ' knappen
+4) Ska kunna se 1st okat till 2st när jag klicka på ' + ' knappen
+5) Ska kunna gå tillbaka till produktlistan när man klicka på 'till butiken'
+
+--- Shopping bag view -----
+1) Ska kunna se 2st 'banan' och 3st 'jordgubbar' i listan 
+2) Ska kunna räkna '46kr + 198kr = 244kr' total summan
+3) Ska kunna radera 'Banan' från listan
+4) Ska kunna räkna att total summan blir 198kr efter man ta bort 'Banan' från listan
+5) Ska kunna gå tillbaka till produktlistan när man klicka på 'Fortsätt handla' knappen
+6) Ska kunna inte gå till kassan när varukorg är tomt. Man kan inte klicka på 'Till kassan' knappen
+7) Ska kunna gå till orderbekräftelse sidan när man klicka på 'Till kassan' knappen
+
+
+--- Thank You view -----
+1) Ska kunna se 'Your order is on the way! Thanks!"
+2) Ska kunna gå tillbaka till produktlistan när man klicka på 'Till hem' knappen
+
+
+App-vue träd
+   	
+---Home view ------
+<Header>
+  <SearchBar>
+  <ShoppingCartIcon>
+<ProductList>
+   <Product>   @click ---> Description view
+     <AddDeleteButton>		
+<Footer>
+
+
+--- Description view -----
+<Header>
+<Product>
+<AddDeleteButton>
+<Footer>
+
+
+--- Shopping bag view -----
+<Header>
+<CartList>
+   <CartItem>
+   <Product>
+   <AddDeleteButton>
+   <DeleteItem>
+<Footer>
+
+
+--- Thank You view -----
+
+<Header>
+<div>
+<Footer>
