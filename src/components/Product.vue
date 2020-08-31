@@ -5,11 +5,16 @@
       <div class="price">
       {{product.price}} /{{product.unit}}
       </div>
+      <AddDeleteButton v-bind:product="product"/>
   </div>
 </template>
 
 <script>
+import AddDeleteButton from '@/components/AddDeleteButton'
 export default {
+    components:{
+        AddDeleteButton
+    },
     props:["product"]
 
 }
