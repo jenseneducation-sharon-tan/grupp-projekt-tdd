@@ -2,7 +2,7 @@
   <div class="home">
     <Header />
     <div class="catchphrase">
-      <h2>Alltid 100% ekologiskt</h2>
+      <h2>Alltid 100% ekologiskt!</h2>
     </div>
     <ProductList v-bind:products="products" />
     <Footer />
@@ -43,7 +43,7 @@ export default {
   h2 {
     color: $white;
     margin: auto 0;
-    font-size: 4rem;
+    font-size: 5rem;
   }
 }
 </style>
