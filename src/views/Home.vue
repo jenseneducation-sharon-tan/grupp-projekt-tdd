@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <Header />
+    <div class="catchphrase">
+      <h2>Alltid 100% ekologiskt</h2>
+    </div>
     <ProductList v-bind:products="products" />
     <Footer />
   </div>
@@ -25,3 +28,22 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+@import "@/scss/main";
+
+.catchphrase {
+  background-image: url("../assets/fruits_wide.png");
+  height: 200px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+
+  h2 {
+    color: $white;
+    margin: auto 0;
+    font-size: 3rem;
+  }
+}
+</style>
