@@ -34,7 +34,7 @@ export default {
 
 .catchphrase {
   background-image: url("../assets/fruits_wide.png");
-  height: 200px;
+  height: 300px;
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -43,7 +43,7 @@ export default {
   h2 {
     color: $white;
     margin: auto 0;
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 </style>
