@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    <h3>Contact Us</h3>
+    <h2>Contact Us</h2>
     <div class="contact">
       <div class="mail">
         <img src="@/assets/mail.svg" alt="" />
@@ -11,7 +11,7 @@
         <a>072xxxxxxx</a>
       </div>
     </div>
-    <span>All right reserved @ FRUKT SHOP</span>
+    <span>All right reserved @ FruktHem.se</span>
   </div>
 </template>
 

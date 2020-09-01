@@ -1,6 +1,6 @@
 @import "./typography";
-@import "./layout";
 @import "./variables";
+@import "./button";
 
 *::after,
 *::before,
@@ -11,6 +11,6 @@
 }
 
 body {
-  background: $white;
+  background: $light-gray2;
   color: $dark-gray;
 }

@@ -1,8 +1,8 @@
 <template>
   <div id="header">
     <router-link to="/">
-      <img class="logo" src="@/assets/logo.png" alt="logo" />
-      <span class="logo-text">FRUIT STORE</span>
+      <!-- <img class="logo" src="@/assets/logo.png" alt="logo" /> -->
+      <span class="logo-text">FruktHem.se</span>
     </router-link>
     <CartList />
   </div>
@@ -40,9 +40,10 @@ export default {
 
     .logo-text {
       color: $white;
-      margin-left: 24px;
+      margin-left: 8px;
       font-size: 40px;
       font-weight: bold;
+      font-family: "Caveat Brush", cursive;
     }
   }
 
