@@ -1,9 +1,9 @@
 <template>
   <div class="fruit">
-    <router-link v-bind:to="'/description/'+product.id">
+    <router-link v-bind:to="'/description/' + product.id">
       <img v-bind:src="product.image" />
-      {{product.name}}
-      <div class="price">{{product.price}} /{{product.unit}}</div>
+      {{ product.name }}
+      <div class="price">{{ product.price }} /{{ product.unit }}</div>
     </router-link>
     <AddDeleteButton v-bind:product="product" />
   </div>
@@ -25,7 +25,7 @@ export default {
   margin: 20px;
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+  box-shadow: 5px 10px 18px #888888;
   img {
     width: 160px;
     height: 180px;
