@@ -4,7 +4,7 @@
     <div class="contact">
       <div class="mail">
         <img src="@/assets/mail.svg" alt="" />
-        <a>mailus@fruktshop.com</a>
+        <a href="mailto:mailus@fruktshop.com">mailus@fruktshop.com</a>
       </div>
       <div class="call">
         <img src="@/assets/call.svg" alt="" />
@@ -49,6 +49,10 @@ export default {};
 
     .mail {
       margin: 0 16px;
+
+      a {
+        color: $white;
+      }
 
       img {
         margin: 0 8px;
