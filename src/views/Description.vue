@@ -1,18 +1,36 @@
 <template>
   <div>
-    <Product/>
+    <Header />
+    <Product v-bind:product="product" />
+    <div class="info-div">
+      <p>This is a good eco {{product.name}}</p>
+    </div>
+    <Footer />
   </div>
 </template>
 
 <script>
-import Product from '../components/Product'
+import Product from "../components/Product";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 export default {
-   components:{
-     Product
-   }
-}
+  components: {
+    Product,
+    Header,
+    Footer,
+  },
+  computed: {
+    product() {
+      let id = this.$route.params.id;
+      return this.$root.$data.products.find((product) => product.id == id);
+    },
+  },
+};
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.info-div {
+  background: #fdffab;
+  padding: 1rem;
+}
 </style>

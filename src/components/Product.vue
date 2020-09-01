@@ -1,8 +1,10 @@
 <template>
   <div class="fruit">
-    <img v-bind:src="product.image" />
-    {{ product.name }}
-    <div class="price">{{ product.price }} /{{ product.unit }}</div>
+    <router-link v-bind:to="'/description/' + product.id">
+      <img v-bind:src="product.image" />
+      {{ product.name }}
+      <div class="price">{{ product.price }} /{{ product.unit }}</div>
+    </router-link>
     <AddDeleteButton v-bind:product="product" />
   </div>
 </template>
