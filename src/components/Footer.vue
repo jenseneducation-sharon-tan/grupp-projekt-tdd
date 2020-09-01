@@ -1,6 +1,6 @@
 <template>
   <div id="footer">
-    <h2>Contact Us</h2>
+    <h2>Kontakta oss</h2>
     <div class="contact">
       <div class="mail">
         <img src="@/assets/mail.svg" alt="" />
@@ -11,7 +11,7 @@
         <a>072xxxxxxx</a>
       </div>
     </div>
-    <span>All right reserved @ FruktHem.se</span>
+    <span>Alla rättigheter reserverade @ FruktHem.se</span>
   </div>
 </template>
 
