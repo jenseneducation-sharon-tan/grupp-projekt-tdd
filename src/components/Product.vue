@@ -11,6 +11,7 @@
 
 <script>
 import AddDeleteButton from '@/components/AddDeleteButton'
+
 export default {
     components:{
         AddDeleteButton

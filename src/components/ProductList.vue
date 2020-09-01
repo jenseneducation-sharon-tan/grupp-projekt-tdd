@@ -16,11 +16,9 @@ export default {
 
 <style lang ="scss" scoped>
 #allFruits {
-    width: 900px;
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-
-  
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
 }
 </style>
