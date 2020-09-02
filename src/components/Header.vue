@@ -32,6 +32,9 @@ export default {
   display: flex;
   align-items: center;
   padding: 0 24px;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
 
   a {
     text-decoration: none;
