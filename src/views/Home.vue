@@ -15,8 +15,6 @@
       </nav>
       <ProductList v-bind:products="products" />
     </div>
-
-    <ProductList v-bind:products="products" />
     <Footer />
   </div>
 </template>
