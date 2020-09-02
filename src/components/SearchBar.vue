@@ -1,26 +1,28 @@
 <template>
   <div class="search">
-    <input
-      type="text"
-      placeholder="Sök vara i e-handeln"
-      v-model="userInput"
-      @click="showList"
-    />
-    <button class="search-btn" @click="showMatch">Sök</button>
+    <div class="userSearch">
+      <input
+        class="search-input"
+        type="text"
+        placeholder="Sök vara i e-handeln"
+        v-model="userInput"
+        @click="showList"
+      />
+      <button class="search-btn" @click="showMatch">Sök</button>
+    </div>
     <div class="dropDownList">
       <ul class="fruitList" v-if="isVisible">
-        <li v-for="product in filteredFruits" :key="product.id">
-          {{ product.name }}
-        </li>
+        <li v-for="product in filteredFruits" :key="product.id">{{ product.name }}</li>
       </ul>
     </div>
     <div class="searchResult" v-if="noMatch">
       <h4>
-        Sökresultat: <span>"{{ userInput }}"</span>
+        Sökresultat:
+        <span>"{{ userInput }}"</span>
       </h4>
       <div class="message">
         Tyvärr hittade vi inga produkter som matchar din sökning "{{
-          userInput
+        userInput
         }}"
       </div>
     </div>
@@ -30,9 +32,10 @@
 <script>
 export default {
   props: ["products"],
-  data: function() {
+  data: function () {
     return {
       userInput: "",
+      isActive: false,
       isVisible: false,
       noMatch: false,
     };
@@ -70,6 +73,34 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/scss/main";
+
+.userSearch {
+  display: inline-block;
+  margin-left: 170px;
+}
+
+.search-input {
+  margin-top: 200px;
+  height: 40px;
+  width: 250px;
+  padding: 10px;
+}
+
+.search-btn {
+  height: 40px;
+  width: 20%;
+  margin-top: 20px;
+}
+
+.dropDownList {
+  background-color: white;
+  text-align: left;
+  padding: 15px;
+  width: 250px;
+  margin-left: 170px;
+}
+
 .fruitList {
   list-style: none;
 }

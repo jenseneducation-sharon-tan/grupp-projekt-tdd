@@ -1,22 +1,24 @@
 <template>
-
   <div id="header">
     <router-link to="/">
       <!-- <img class="logo" src="@/assets/logo.png" alt="logo" /> -->
       <span class="logo-text">FruktHem.se</span>
     </router-link>
+    <SearchBar v-bind:products="products" />
     <CartList />
-
   </div>
 </template>
 
 <script>
 import CartList from "@/components/CartList.vue";
+import SearchBar from "@/components/SearchBar.vue";
 
 export default {
   components: {
     CartList,
+    SearchBar,
   },
+  props: ["products"],
 };
 </script>
 
@@ -58,4 +60,3 @@ export default {
   }
 }
 </style>
-
