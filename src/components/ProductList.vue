@@ -18,15 +18,14 @@ export default {
 };
 </script>
 
-
-<style lang ="scss" scoped>
+<style lang="scss" scoped>
 @import "../scss/main.scss";
 
 #allFruits {
-  width: 900px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin: auto;
-
+  justify-content: center;
+  margin: 24px;
 }
 </style>
