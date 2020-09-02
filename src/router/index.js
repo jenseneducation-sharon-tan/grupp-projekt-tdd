@@ -22,6 +22,8 @@ const routes = [
     path: "/ShoppingBag",
     name: "ShoppingBag",
     component: ShoppingBag,
+  },
+  {
     path: "/thank-you",
     name: "ThankYou",
     component: ThankYou,
