@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Description from "../views/Description.vue";
 import ShoppingBag from "../views/ShoppingBag.vue";
+import ThankYou from "../views/ThankYou.vue";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,9 @@ const routes = [
     path: "/ShoppingBag",
     name: "ShoppingBag",
     component: ShoppingBag,
+    path: "/thank-you",
+    name: "ThankYou",
+    component: ThankYou,
   },
 ];
 
