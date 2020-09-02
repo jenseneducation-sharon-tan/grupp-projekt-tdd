@@ -44,7 +44,6 @@ export default {
 }
 
 .about_main {
-  height: 100%;
   padding: 2rem 0;
   display: flex;
   flex-direction: column;
