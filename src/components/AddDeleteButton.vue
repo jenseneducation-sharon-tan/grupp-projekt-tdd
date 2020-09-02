@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="click">
   <img src ="@/assets/minus.svg" alt="minus" @click="down()" id="minus">
   <h6 class="count">{{product.count}} st</h6>
   <img src="@/assets/add.svg" alt="add" @click="increment()" id="add">
@@ -25,6 +25,14 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import "../scss/main.scss";
+
+#click{
+    
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
 
 </style>

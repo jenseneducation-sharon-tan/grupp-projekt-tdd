@@ -1,40 +1,55 @@
 <template>
   <div class="fruit">
-      <img v-bind:src = "product.image">
-      {{product.name}}
-      <div class="price">
-      {{product.price}} /{{product.unit}}
+    <router-link v-bind:to="'/description/' + product.id">
+      <img v-bind:src="product.image" />
+      <div class=fruitName>
+      {{ product.name }}
       </div>
-      <AddDeleteButton v-bind:product="product"/>
+      <div class="price">{{ product.price }} /{{ product.unit }}</div>
+    </router-link>
+    <AddDeleteButton v-bind:product="product" />
   </div>
 </template>
 
 <script>
-import AddDeleteButton from '@/components/AddDeleteButton'
+import AddDeleteButton from "@/components/AddDeleteButton";
 
 export default {
-    components:{
-        AddDeleteButton
-    },
-    props:["product"]
-
-}
+  components: {
+    AddDeleteButton,
+  },
+  props: ["product"],
+};
 </script>
 
 <style lang="scss" scoped>
-.fruit {
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    border:2px solid black;
-    img {
-        width: 160px;
-        height: 180px;
-    }
-}
+@import "../scss/main.scss";
 
+.fruit {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 10px 18px #888888;
+  a{
+    text-decoration: none;
+  
+  img {
+    width: 160px;
+    height: 180px;
+  
+ 
+  }
 .price {
-    text-align: right;
-    border-top: 1px solid gray;
+  text-align: right;
+  border-top: 1px solid gray;
+  font-size:20px;
+  color:$pink;
+  margin-right:5px;
+}
+.fruitName{
+  color:$black;
+  margin-bottom:5px;
+}
+}
 }
 </style>

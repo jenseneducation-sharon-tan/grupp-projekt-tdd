@@ -1,0 +1,16 @@
+@import "./typography";
+@import "./variables";
+@import "./button";
+
+*::after,
+*::before,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $light-gray2;
+  color: $dark-gray;
+}
