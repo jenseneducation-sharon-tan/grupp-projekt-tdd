@@ -9,9 +9,7 @@
         Tack!
       </p>
       <hr />
-      <router-link to="/thank-you" tag="button" id="button"
-        >Till butiken</router-link
-      >
+      <router-link to="/" tag="button" id="button">Till butiken</router-link>
     </main>
     <Footer />
   </div>
