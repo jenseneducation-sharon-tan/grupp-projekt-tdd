@@ -15,10 +15,12 @@ export default {
 </script>
 
 <style lang ="scss" scoped>
+@import "../scss/main.scss";
 #allFruits {
   width: 900px;
   display: flex;
   flex-wrap: wrap;
   margin: auto;
+
 }
 </style>
