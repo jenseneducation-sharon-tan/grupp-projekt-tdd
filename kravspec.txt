@@ -15,8 +15,11 @@ Användares prespektiv
 3) Ska kunna söka 'Banan' från produktlistan
 4) Ska kunna lägga till och öka antalet med 1 i cart ikonen när man klickar '+' banan  
 5) Ska kunna minska antalet 'Banan' från 2 till 1 från varukorg
-6) Ska kunna klicka på 'Banan' och går till Description vy
-8) Ska kunna klicka på cart icon och går till Shopping bag vy
+6) Ska kunna öka med '1' i räknare när man klickar på '+' knappen 
+7) Ska kunna minska med '1' i räknare när man klickar på '-' knappen
+8) Ska inte gå mindre än '0' i räknare när man klickar på '-' knappen
+9) Ska kunna klicka på 'Banan' och går till Description vy
+10) Ska kunna klicka på cart icon och går till Shopping bag vy
 
 ---- Description view -----
 1) Ska kunna se mer info om banan

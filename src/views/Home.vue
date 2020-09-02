@@ -1,9 +1,11 @@
 <template>
   <div class="home">
+
     <Header />
     <div class="catchphrase">
       <h2>Alltid 100% ekologiskt</h2>
     </div>
+
     <ProductList v-bind:products="products" />
     <Footer />
   </div>
@@ -19,7 +21,9 @@ export default {
   components: {
     ProductList,
     Header,
+
     Footer,
+
   },
   computed: {
     products() {
