@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header />
+    <Header v-bind:products="products" />
     <ProductList v-bind:products="products" />
   </div>
 </template>
@@ -13,12 +13,12 @@ export default {
   name: "Home",
   components: {
     ProductList,
-    Header
+    Header,
   },
   computed: {
     products() {
       return this.$root.$data.products;
-    }
-  }
+    },
+  },
 };
 </script>

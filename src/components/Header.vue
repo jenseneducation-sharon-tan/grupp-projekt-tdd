@@ -1,19 +1,20 @@
 <template>
   <div>
-       <CartList/>
+    <CartList />
+    <SearchBar v-bind:products="products" />
   </div>
 </template>
 
 <script>
-import CartList from '@/components/CartList.vue'
+import CartList from "@/components/CartList.vue";
+import SearchBar from "@/components/SearchBar.vue";
 export default {
-    components:{
-        CartList
-    }
-
-}
+  components: {
+    CartList,
+    SearchBar,
+  },
+  props: ["products"],
+};
 </script>
 
-<style>
-
-</style>
+<style></style>
