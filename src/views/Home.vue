@@ -15,6 +15,8 @@
       </nav>
       <ProductList v-bind:products="products" />
     </div>
+
+    <ProductList v-bind:products="products" />
     <Footer />
   </div>
 </template>
@@ -29,6 +31,7 @@ export default {
   components: {
     ProductList,
     Header,
+
     Footer,
   },
   computed: {
