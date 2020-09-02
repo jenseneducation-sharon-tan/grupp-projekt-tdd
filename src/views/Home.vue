@@ -5,7 +5,14 @@
       <h2>Alltid 100% ekologiskt!</h2>
     </div>
     <div class="nav_main">
-      <nav></nav>
+      <nav>
+        <router-link
+          v-for="routes in links"
+          v-bind:key="routes.id"
+          :to="`${routes.page}`"
+          >{{ routes.text }}</router-link
+        >
+      </nav>
       <ProductList v-bind:products="products" />
     </div>
     <Footer />
@@ -29,6 +36,25 @@ export default {
       return this.$root.$data.products;
     },
   },
+  data: () => ({
+    links: [
+      {
+        id: 0,
+        text: "Frukter",
+        page: "/",
+      },
+      {
+        id: 1,
+        text: "Om oss",
+        page: "/about",
+      },
+      {
+        id: 2,
+        text: "Kontakt",
+        page: "/contact",
+      },
+    ],
+  }),
 };
 </script>
 
@@ -57,5 +83,20 @@ export default {
 nav {
   width: 20%;
   background: $yellow;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 2rem;
+
+  a {
+    margin: 1rem auto 0.5rem 20%;
+    text-decoration: none;
+    color: $dark-gray;
+    font-size: 1.5rem;
+
+    &:hover {
+      color: $green;
+    }
+  }
 }
 </style>
