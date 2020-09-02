@@ -4,7 +4,10 @@
     <div class="catchphrase">
       <h2>Alltid 100% ekologiskt!</h2>
     </div>
-    <ProductList v-bind:products="products" />
+    <div class="nav_main">
+      <nav></nav>
+      <ProductList v-bind:products="products" />
+    </div>
     <Footer />
   </div>
 </template>
@@ -45,5 +48,14 @@ export default {
     margin: auto 0;
     font-size: 5rem;
   }
+}
+
+.nav_main {
+  display: flex;
+}
+
+nav {
+  width: 20%;
+  background: $yellow;
 }
 </style>
