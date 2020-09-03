@@ -1,7 +1,7 @@
 <template>
   <div>
     <img src="@/assets/minus.svg" alt="minus" @click="down()" id="minus" />
-    <h6 class="count">{{ product.count }} st</h6>
+    <h6 class="count">{{ this.product.count }} st</h6>
 
     <img src="@/assets/add.svg" alt="add" @click="increment()" id="add" />
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  props: ["product"],
+  props: ["id"],
 
   methods: {
     increment() {
@@ -46,6 +46,13 @@ export default {
         cart[index].count == 0;
         cart.splice(index, 1);
       }
+    }
+  },
+  computed: {
+    product() {
+      let products = this.$root.$data.products;
+      let product = products.find(item => item.id === this.id);
+      return product;
     }
   }
   /* computed: {

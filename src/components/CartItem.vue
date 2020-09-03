@@ -12,7 +12,7 @@
             </div>
             <div class="item-title">{{ product.name }}</div>
             <div class="price">{{ product.price }}/{{ product.unit }}</div>
-            <AddDeleteButton v-bind:product="product" />
+            <AddDeleteButton v-bind:id="product.id" />
             <div class="item-price">{{ product.price * product.count }}kr</div>
             <DeleteItem v-bind:id="product.id" v-on:send-id="getId" />
           </div>
