@@ -1,9 +1,12 @@
 <template>
   <div>
     <Header />
+    <div id="backBtnDiv">
+      <button id="backHome">Till hem</button>
+    </div>
     <Product v-bind:product="product" />
     <div class="info-div">
-      <p>This is a good eco {{product.name}}</p>
+      <p>This is a good eco {{ product.name }}</p>
     </div>
     <Footer />
   </div>
@@ -17,14 +20,14 @@ export default {
   components: {
     Product,
     Header,
-    Footer,
+    Footer
   },
   computed: {
     product() {
       let id = this.$route.params.id;
-      return this.$root.$data.products.find((product) => product.id == id);
-    },
-  },
+      return this.$root.$data.products.find(product => product.id == id);
+    }
+  }
 };
 </script>
 
@@ -32,5 +35,11 @@ export default {
 .info-div {
   background: #fdffab;
   padding: 1rem;
+}
+#backBtnDiv {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  padding-left: 2rem;
 }
 </style>

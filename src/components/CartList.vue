@@ -2,7 +2,7 @@
   <div class="bag">
     <router-link to="/ShoppingBag">
       <div class="counter">
-        <p class="counter__num">{{ counter }}</p>
+        <!-- <p class="counter__num">{{ counter }}</p> -->
       </div>
       <div class="cartWrapper">
         <img class="cartIcon" src="@/assets/shopping-cart.svg" alt="Bag/Cart" />
@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style lang ="scss" scoped>
+<style lang="scss" scoped>
 @import "../scss/main.scss";
 .bag {
   position: absolute;

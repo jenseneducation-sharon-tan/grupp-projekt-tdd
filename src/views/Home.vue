@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-
     <Header v-bind:products="products" />
 
     <div class="catchphrase">
@@ -36,6 +35,7 @@ export default {
   },
   computed: {
     products() {
+      console.log(this.$root.$data.products);
       return this.$root.$data.products;
     },
   },
@@ -73,7 +73,8 @@ export default {
   justify-content: center;
 
   h2 {
-    color: $white;
+    //color: $white;
+    color: #ffffff;
     margin: auto 0;
     font-size: 5rem;
   }

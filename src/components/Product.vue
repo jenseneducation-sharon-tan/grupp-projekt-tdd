@@ -16,9 +16,9 @@ import AddDeleteButton from "@/components/AddDeleteButton";
 
 export default {
   components: {
-    AddDeleteButton,
+    AddDeleteButton
   },
-  props: ["product"],
+  props: ["product"]
 };
 </script>
 
