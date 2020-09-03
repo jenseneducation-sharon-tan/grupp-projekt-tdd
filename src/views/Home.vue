@@ -1,10 +1,21 @@
 <template>
   <div class="home">
-    <Header />
+    <Header v-bind:products="products" />
+
     <div class="catchphrase">
-      <h2>Alltid 100% ekologiskt</h2>
+      <h2>Alltid 100% ekologiskt!</h2>
     </div>
-    <ProductList v-bind:products="products" />
+    <div class="nav_main">
+      <nav>
+        <router-link
+          v-for="routes in links"
+          v-bind:key="routes.id"
+          :to="`${routes.page}`"
+          >{{ routes.text }}</router-link
+        >
+      </nav>
+      <ProductList v-bind:products="products" />
+    </div>
     <Footer />
   </div>
 </template>
@@ -19,6 +30,7 @@ export default {
   components: {
     ProductList,
     Header,
+
     Footer,
   },
   computed: {
@@ -26,6 +38,25 @@ export default {
       return this.$root.$data.products;
     },
   },
+  data: () => ({
+    links: [
+      {
+        id: 0,
+        text: "Frukter",
+        page: "/",
+      },
+      {
+        id: 1,
+        text: "Om oss",
+        page: "/about",
+      },
+      {
+        id: 2,
+        text: "Kontakt",
+        page: "/contact",
+      },
+    ],
+  }),
 };
 </script>
 
@@ -43,7 +74,31 @@ export default {
   h2 {
     color: $white;
     margin: auto 0;
-    font-size: 4rem;
+    font-size: 5rem;
+  }
+}
+
+.nav_main {
+  display: flex;
+}
+
+nav {
+  width: 20%;
+  background: $yellow;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 2rem;
+
+  a {
+    margin: 1rem auto 0.5rem 20%;
+    text-decoration: none;
+    color: $dark-gray;
+    font-size: 1.5rem;
+
+    &:hover {
+      color: $green;
+    }
   }
 }
 </style>

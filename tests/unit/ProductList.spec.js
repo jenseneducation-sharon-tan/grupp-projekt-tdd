@@ -11,11 +11,19 @@ describe("ProductList", () => {
       { name: "Blåbär", id: 4, image: "", price: 45, unit: "kg", count: 0 },
       { name: "Avokado", id: 5, image: "", price: 10, unit: "st", count: 0 },
       { name: "Äpple", id: 6, image: "", price: 24.9, unit: "kg", count: 0 },
-      { name: "Vindruvor grön", id: 7, image: "", price: 30, unit: "kg", count: 0 },
+      {
+        name: "Vindruvor grön",
+        id: 7,
+        image: "",
+        price: 30,
+        unit: "kg",
+        count: 0,
+      },
       { name: "Päron", id: 8, image: "", price: 23, unit: "kg", count: 0 },
-    ]
+    ];
     wrapper = mount(ProductList, { propsData: { products } });
   });
+
   it("should have to show  8 products  when rendering", async () => {
     const expected = 8;
     const actual = wrapper.findAll(".fruit").length;

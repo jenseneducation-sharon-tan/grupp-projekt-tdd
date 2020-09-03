@@ -1,10 +1,11 @@
 <template>
-  <div>
+  <div id="click">
     <img src="@/assets/minus.svg" alt="minus" @click="down()" id="minus" />
-    <h6 class="count">{{ product.count }} st</h6>
+    <p class="count">{{ product.count }} st<p>
 
     <img src="@/assets/add.svg" alt="add" @click="increment()" id="add" />
   </div>
+  
 </template>
 
 <script>
