@@ -99,10 +99,9 @@ describe("SearchBar", () => {
     const input = wrapper.find("input");
 
     await input.trigger("click");
+    await input.setValue("applesin");
 
     const searchBtn = wrapper.find(".search-btn");
-
-    await input.setValue("applesin");
     await searchBtn.trigger("click");
 
     let results = wrapper.findAll("ul > li").wrappers;
