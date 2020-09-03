@@ -27,5 +27,6 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   margin: 24px;
+  z-index: 999;
 }
 </style>

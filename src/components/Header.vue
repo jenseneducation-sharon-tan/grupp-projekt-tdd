@@ -33,6 +33,7 @@
       }"
     />
     <CartList
+      class="cart"
       v-bind:products="products"
       v-bind:class="{
         'display-none': $route.path == '/thank-you',
@@ -96,6 +97,7 @@ export default {
       font-size: 40px;
       font-weight: bold;
       font-family: "Caveat Brush", cursive;
+      z-index: 999;
     }
 
     .logo-text {
@@ -117,7 +119,10 @@ export default {
   }
 
   .display {
-    display: block;
+    display: flex;
+  }
+  .cart {
+    z-index: 999;
   }
 }
 </style>
