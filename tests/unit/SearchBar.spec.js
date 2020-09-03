@@ -22,7 +22,9 @@ describe("SearchBar", () => {
   });
 
   it("should get list as props from parent ", async () => {
-    const wrapper = mount(Header, { propsData: { products } });
+    const wrapper = mount(Header, {
+      propsData: { products },
+    });
 
     const input = wrapper.find("input");
 

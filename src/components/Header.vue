@@ -5,7 +5,7 @@
       <span class="logo-text">FruktHem.se</span>
     </router-link>
     <SearchBar v-bind:products="products" />
-    <CartList />
+    <CartList v-bind:products="products" />
   </div>
 </template>
 
