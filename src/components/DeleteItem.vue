@@ -14,16 +14,7 @@
 export default {
   props: ["id"],
 
-  methods: {
-    removeProduct() {
-      console.log(this.id);
-      /*let cart = this.cart;
-      console.log(cart);
-      let index = cart.findIndex((item) => item.id === id);
-      console.log(index);
-      cart.splice(index, 1);*/
-    }
-  }
+  methods: {}
 };
 </script>
 

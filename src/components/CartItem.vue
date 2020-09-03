@@ -47,7 +47,6 @@ export default {
   methods: {
     getId(id) {
       let itemId = id;
-      console.log("cartItem send id: ", itemId);
       this.$emit("send-item", itemId);
     }
   },
