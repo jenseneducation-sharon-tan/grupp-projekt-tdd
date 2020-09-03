@@ -44,13 +44,13 @@ export default {
 
 #minus {
   &:hover {
-    transform: rotate(10deg);
+    transform: scale(0.8);
   }
 }
 
 #add {
   &:hover {
-    transform: rotate(10deg);
+    transform: scale(1.3);
   }
 }
 </style>

@@ -33,6 +33,10 @@ export default {
   box-shadow: 1px 1px 8px #888888;
   width: 240px;
 
+  &:hover {
+    transform: scale(1.05);
+  }
+
   a {
     text-decoration: none;
 
