@@ -12,7 +12,9 @@
     </div>
     <div class="dropDownList">
       <ul class="fruitList" v-if="isVisible">
-        <li v-for="product in filteredFruits" :key="product.id">{{ product.name }}</li>
+        <li v-for="product in filteredFruits" :key="product.id">
+          {{ product.name }}
+        </li>
       </ul>
     </div>
     <div class="searchResult" v-if="noMatch">
@@ -22,7 +24,7 @@
       </h4>
       <div class="message">
         Tyvärr hittade vi inga produkter som matchar din sökning "{{
-        userInput
+          userInput
         }}"
       </div>
     </div>
@@ -32,7 +34,7 @@
 <script>
 export default {
   props: ["products"],
-  data: function () {
+  data: function() {
     return {
       userInput: "",
       isActive: false,
@@ -74,6 +76,10 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/scss/main";
+
+.search {
+  display: none;
+}
 
 .userSearch {
   display: inline-block;
