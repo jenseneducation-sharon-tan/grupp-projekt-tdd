@@ -13,13 +13,21 @@
 
 <script>
 export default {
-	computed: {
+  props: ["products"],
+  computed: {
+    counter() {
+      let total = 0;
+      this.products.map((product) => (total += product.count));
+      return total;
+    },
+  },
+  /* computed: {
     counter() {
       let total = 0;
       this.$root.$data.products.map(product => (total += product.count));
       return total;
     }
-  }
+  } */
 };
 </script>
 
@@ -41,20 +49,16 @@ export default {
     width: 20px;
     height: 20px;
     margin: 20px auto auto 5px;
-
- 
   }
-  
-  
 }
 .bag:hover {
-    -webkit-animation: wiggle 1.5s linear infinite;
-    animation: wiggle 1.5s linear infinite;
-  }
+  -webkit-animation: wiggle 1.5s linear infinite;
+  animation: wiggle 1.5s linear infinite;
+}
 .counter {
   width: 20px;
   height: 20px;
-  background-color:$pink;
+  background-color: $pink;
   border-radius: 50%;
   position: absolute;
   margin-top: 2px;
@@ -66,58 +70,56 @@ export default {
     text-align: center;
     font-size: 12px;
   }
-     
 }
 
 //animation
 
 @-webkit-keyframes wiggle {
   0% {
-    -webkit-transform:rotateZ(0);
-    transform:rotateZ(0);
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
   }
   10% {
-    -webkit-transform:rotateZ(-15deg);
-    transform:rotateZ(-15deg);
+    -webkit-transform: rotateZ(-15deg);
+    transform: rotateZ(-15deg);
   }
   20% {
-    -webkit-transition:rotateZ(10deg);
-    transition:rotateZ(10deg);
+    -webkit-transition: rotateZ(10deg);
+    transition: rotateZ(10deg);
   }
   25% {
-    -webkit-transition:rotateZ(-10deg);
-    transition:rotateZ(-10deg);
+    -webkit-transition: rotateZ(-10deg);
+    transition: rotateZ(-10deg);
   }
   30% {
-    -webkit-transition:rotateZ(6deg);
-    transition:rotateZ(6deg);
+    -webkit-transition: rotateZ(6deg);
+    transition: rotateZ(6deg);
   }
   35% {
-    -webkit-transform:rotateZ(-4deg);
-    transform:rotateZ(-4deg);
+    -webkit-transform: rotateZ(-4deg);
+    transform: rotateZ(-4deg);
   }
   40% {
-    transform:rotateZ(7deg);
+    transform: rotateZ(7deg);
   }
   50% {
-    transform:rotateZ(-6deg);
+    transform: rotateZ(-6deg);
   }
   60% {
-    transform:rotateZ(10deg);
+    transform: rotateZ(10deg);
   }
   70% {
-    transform:rotateZ(-14deg);
+    transform: rotateZ(-14deg);
   }
   80% {
-    transform:rotateZ(3deg);
+    transform: rotateZ(3deg);
   }
   90% {
-    transform:rotateZ(-7deg);
+    transform: rotateZ(-7deg);
   }
   100% {
-    -webkit-transition:rotateZ(0);
-    transition:rotateZ(0);
-  }}
-
-
+    -webkit-transition: rotateZ(0);
+    transition: rotateZ(0);
+  }
+}
 </style>
