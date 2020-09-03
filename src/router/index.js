@@ -22,10 +22,13 @@ const routes = [
     path: "/ShoppingBag",
     name: "ShoppingBag",
     component: ShoppingBag,
-    path: "/thank-you",
+   
+  },
+  {
+	path: "/thank-you",
     name: "ThankYou",
     component: ThankYou,
-  },
+  }
 ];
 
 const router = new VueRouter({

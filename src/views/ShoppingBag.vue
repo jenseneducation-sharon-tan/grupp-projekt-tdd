@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Header />
-    <CartItem v-bind:product="product" />
+    <CartItem v-bind:cart="cart" />
     <Footer />
   </div>
 </template>
@@ -19,34 +19,10 @@ export default {
     Header,
     Footer,
   },
-
-  /* methods: {
-    cart() {
-      /* if (this.$root.$data.products.find((product)=> product.id == this.$route.params.id)){ 
-      let index = this.$root.$data.products.findIndex(
-        (product) => product.id == this.$route.params.id
-      );
-
-      return this.$root.$data.products[index].count++;
-    }, */
-
   computed: {
-    product() {
-      return this.$root.$data.products;
+    cart() {
+      return this.$root.$data.cart;
     },
-    /*  product() {
-      
-      let index = this.$root.$data.products.findIndex(
-        (product) => product.id == this.$route.params.id
-      );
-      return this.$root.$data.products[index].count++;
-    }, 
-  },
-   
-      product() {
-        let id = this.$route.params.id;
-        return this.$root.$data.products.find((product) => product.id == id);
-      },*/
   },
 };
 </script>
