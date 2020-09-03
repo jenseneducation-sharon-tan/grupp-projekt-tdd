@@ -2,7 +2,7 @@
   <div class="bag">
     <router-link to="/ShoppingBag">
       <div class="counter">
-        <p class="counter__num">{{ counter }}</p>
+        <!-- <p class="counter__num">{{ counter }}</p> -->
       </div>
       <div class="cartWrapper">
         <img class="cartIcon" src="@/assets/shopping-cart.svg" alt="Bag/Cart" />
@@ -13,17 +13,17 @@
 
 <script>
 export default {
-	computed: {
+  /*computed: {
     counter() {
       let total = 0;
       this.$root.$data.products.map(product => (total += product.count));
       return total;
     }
-  }
+  }*/
 };
 </script>
 
-<style lang ="scss" scoped>
+<style lang="scss" scoped>
 .bag {
   position: absolute;
   z-index: 999;

@@ -19,18 +19,19 @@ export default {
   components: {
     ProductList,
     Header,
-    Footer,
+    Footer
   },
   computed: {
     products() {
+      console.log(this.$root.$data.products);
       return this.$root.$data.products;
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+//@import "@/scss/main";
 
 .catchphrase {
   background-image: url("../assets/fruits_wide.png");
@@ -41,7 +42,8 @@ export default {
   justify-content: center;
 
   h2 {
-    color: $white;
+    //color: $white;
+    color: #ffffff;
     margin: auto 0;
     font-size: 4rem;
   }
