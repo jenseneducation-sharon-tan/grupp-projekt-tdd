@@ -89,7 +89,6 @@ nav {
   flex-direction: column;
   text-align: left;
   padding-top: 2rem;
-  z-index: 999;
 
   a {
     margin: 1rem auto 0.5rem 20%;

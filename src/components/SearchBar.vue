@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <div class="not-focus" @click="notFocus"></div>
+    <div v-if="isVisible" v-on:click="away()" class="not-focus"></div>
     <div class="userSearch">
       <input
         class="search-input"
@@ -8,11 +8,10 @@
         placeholder="Sök vara i e-handeln"
         v-model="userInput"
         @click="showList"
-        v-on:focus="onFocus"
       />
       <button class="search-btn" @click="showMatch"></button>
     </div>
-    <div class="dropDownList" v-show="focus">
+    <div class="dropDownList" v-show="isVisible & (filteredFruits.length > 0)">
       <ul class="fruitList" v-if="isVisible">
         <li v-for="product in filteredFruits" :key="product.id">
           {{ product.name }}
@@ -42,7 +41,6 @@ export default {
       isActive: false,
       isVisible: false,
       noMatch: false,
-      focus: false,
     };
   },
   computed: {
@@ -73,11 +71,8 @@ export default {
         this.noMatch = true;
       }
     },
-    onFocus() {
-      this.focus = !this.focus;
-    },
-    notFocus() {
-      this.focus = false;
+    away() {
+      this.isVisible = false;
     },
   },
 };
