@@ -2,6 +2,7 @@
   <div class="home">
     <Header />
     <CartItem v-bind:cart="cart" />
+
     <Footer />
   </div>
 </template>
@@ -19,6 +20,7 @@ export default {
     Header,
     Footer,
   },
+  methods: {},
   computed: {
     cart() {
       return this.$root.$data.cart;

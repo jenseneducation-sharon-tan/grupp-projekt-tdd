@@ -1,9 +1,9 @@
 <template>
   <div class="cart">
-    <!--  <Product v-for="product in cart" v-bind:key="product.id" /> -->
-
     <div class="cart-wrap">
       <h1 class="title">{{ title }}</h1>
+    </div>
+    <div class="cart-item">
       <ul>
         <li v-for="product in cart" v-bind:key="product.id">
           <div class="cart-item-wrap">
@@ -14,74 +14,114 @@
             <div class="price">{{ product.price }}/{{ product.unit }}</div>
             <AddDeleteButton v-bind:product="product" />
             <div class="item-price">{{ product.price * product.count }}kr</div>
-
-            <button class="delete" @click="removeFromCart()" v-bind:key="product.id">Delete</button>
-            <!--  <h3 class="total-price">Att betala:"{{ totalAmount }}" kr</h3> -->
-            <!-- <DeleteItem v-bind:cart="cart" /> -->
+            <DeleteItem v-bind:cart="cart" />
           </div>
         </li>
       </ul>
+    </div>
+
+    <h3 class="total-price">Att betala:{{ totalAmount }} kr</h3>
+    <div class="button">
+      <router-link to="/">
+        <button class="continueShopping">Fortsätt Handla</button>
+      </router-link>
+      <button class="tillKassa">Till Kassan</button>
     </div>
   </div>
 </template>
 
 <script>
 import AddDeleteButton from "@/components/AddDeleteButton";
-/* import DeleteItem from "@/components/DeleteItem"; */
-/* import Product from "@/components/Product"; */
+import DeleteItem from "@/components/DeleteItem";
+
 export default {
-  components: { AddDeleteButton },
+  components: { AddDeleteButton, DeleteItem },
   data() {
     return {
       title: "Varukorg",
+      totalValue: 0,
+      total: 0,
     };
   },
   props: ["cart"],
-  methods: {
-    removeFromCart() {
-      let cart = this.$root.$data.cart;
-      let index = this.cart.findIndex((item) => item.id === this.product.id);
-      cart.splice(index, 1);
+  methods: {},
+  computed: {
+    /*  totalPrice(product) {
+      let total = this.total;
+      console.log(total);
+      total = product.price * product.count;
+      console.log(total);
+      return total;
+    }, */
+
+    totalAmount() {
+      let cart = this.cart;
+      let totalValue = this.totalValue;
+      if (cart.length > 0) {
+        totalValue = 0;
+        cart.forEach((product) => {
+          totalValue += product.price * product.count;
+        });
+
+        return totalValue;
+      } else {
+        return 0;
+      }
     },
   },
-  /* computed: {
-    totalPrice() {
-      let cart = this.$root.$data.cart;
-      let total = cart.price * cart.count;
-      return total;
-    },
-  }, */
-
-  /* totalAmount() {
-    let totalValue = 0;
-    let cart = this.$root.$data.cart;
-    if (cart.length > 0) {
-      cart.totalValue = 0;
-      cart.forEach((item) => {
-        cart.totalValue += item.price * item.quantity;
-      });
-      return cart.totalValue;
-    } else {
-      return 0;
-    }
-  }, */
 };
 </script>
 
 <style lang="scss" scoped>
-.fruit {
+.cart {
   margin: 20px;
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
+}
+.cart-wrap {
+  margin: 20px;
+}
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
   img {
-    width: 160px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
+  }
+  ul {
+    width: 85%;
+
+    & li {
+      list-style: none;
+      margin-bottom: 20px;
+    }
   }
 }
+.cart-item-wrap {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-rows: 50px 50px;
+  text-align: left;
+}
 
-.price {
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.total-price {
   text-align: right;
-  border-top: 1px solid gray;
+  font-size: 30px;
+}
+.tillKassa {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 20px;
+}
+.continueShopping {
+  margin-top: 20px;
+  width: 20px;
 }
 </style>
