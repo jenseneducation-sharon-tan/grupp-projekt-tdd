@@ -16,9 +16,9 @@ import SearchBar from "@/components/SearchBar.vue";
 export default {
   components: {
     CartList,
-    SearchBar,
+    SearchBar
   },
-  props: ["products"],
+  props: ["products"]
 };
 </script>
 
