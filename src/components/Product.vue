@@ -2,9 +2,7 @@
   <div class="fruit">
     <router-link v-bind:to="'/description/' + product.id">
       <img v-bind:src="product.image" />
-      <div class="fruitName">
-        {{ product.name }}
-      </div>
+      <div class="fruitName">{{ product.name }}</div>
       <div class="price">{{ product.price }} ,00 /{{ product.unit }}</div>
     </router-link>
     <AddDeleteButton v-bind:product="product" />
@@ -16,9 +14,9 @@ import AddDeleteButton from "@/components/AddDeleteButton";
 
 export default {
   components: {
-    AddDeleteButton,
+    AddDeleteButton
   },
-  props: ["product"],
+  props: ["product"]
 };
 </script>
 
@@ -33,9 +31,9 @@ export default {
   box-shadow: 1px 1px 8px #888888;
   width: 240px;
 
-  &:hover {
-    transform: scale(1.05);
-  }
+  // &:hover {
+  //   transform: scale(1.05);
+  // }
 
   a {
     text-decoration: none;
