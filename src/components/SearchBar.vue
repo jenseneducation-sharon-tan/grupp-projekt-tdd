@@ -50,7 +50,7 @@ export default {
   methods: {
     showList() {
       this.noMatch = false;
-      this.isVisible = true;
+      this.isVisible = !this.isVisible;
       this.userInput = "";
     },
     showMatch() {
