@@ -24,7 +24,7 @@ export default {
   /* computed: {
     counter() {
       let total = 0;
-      this.$root.$data.products.map(product => (total += product.count));
+      this.$root.$data.cart.map((product) => (total += product.count));
       return total;
     }
   } */

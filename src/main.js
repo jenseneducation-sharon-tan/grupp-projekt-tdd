@@ -18,6 +18,8 @@ new Vue({
 
   el: "#app",
   data: {
+    cart: [],
+
     products: [
       { name: "Banan", id: 1, image: banana, price: 23, unit: "kg", count: 0 },
       {
