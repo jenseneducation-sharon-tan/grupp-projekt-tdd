@@ -31,11 +31,9 @@ export default {
 };
 </script>
 
-<style lang ="scss" scoped>
+<style lang="scss" scoped>
 @import "../scss/main.scss";
 .bag {
-  position: absolute;
-  z-index: 999;
   top: 20px;
   right: 20px;
 }

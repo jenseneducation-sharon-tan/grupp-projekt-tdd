@@ -1,15 +1,44 @@
 <template>
   <div id="header">
-    <router-link to="/">
+    <a
+      class="back"
+      href="/"
+      v-if="$route.path != '/'"
+      v-bind:class="{
+        'display-none': $route.path == '/thank-you',
+      }"
+      >&#8810;&nbsp; Till butiken</a
+    >
+
+    <router-link
+      to="/"
+      class="logo-wrap"
+      v-bind:class="{
+        'logo-center': $route.path != '/',
+      }"
+    >
       <!-- <img class="logo" src="@/assets/logo.png" alt="logo" /> -->
       <span
-        class="logo-text"
-        :class="{ 'center-logo': $route.path === '/thank-you' }"
+        class="logo"
+        v-bind:class="{
+          'logo-text': $route.path == '/',
+        }"
         >FruktHem.se</span
       >
     </router-link>
-    <SearchBar v-bind:products="products" />
-    <CartList v-bind:products="products" />
+    <SearchBar
+      v-bind:products="products"
+      v-bind:class="{
+        display: $route.path == '/',
+      }"
+    />
+    <CartList
+      v-bind:products="products"
+      v-bind:class="{
+        'display-none': $route.path == '/thank-you',
+        'display-none2': $route.path == '/ShoppingBag',
+      }"
+    />
   </div>
 </template>
 
@@ -22,10 +51,13 @@ export default {
     CartList,
     SearchBar,
   },
-  props: ["products"],
-  data: () => ({
-    centerLogo: false,
-  }),
+  computed: {
+    products() {
+      return this.$root.$data.products;
+    },
+  },
+  // props: ["products"],
+  data: () => ({}),
 };
 </script>
 
@@ -42,32 +74,50 @@ export default {
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 0;
+  justify-content: space-between;
+
+  .back {
+    color: $dark-gray;
+    font-size: 1rem;
+  }
 
   a {
     text-decoration: none;
     display: flex;
     align-items: center;
 
+    // .logo {
+    //   width: 45px;
+    //   height: 45px;
+    // }
+
     .logo {
-      width: 45px;
-      height: 45px;
-    }
-
-    .center-logo {
-      font-size: 100px;
-    }
-
-    .logo-text {
       color: $white;
-      margin-left: 8px;
       font-size: 40px;
       font-weight: bold;
       font-family: "Caveat Brush", cursive;
     }
+
+    .logo-text {
+      margin-left: 8px;
+    }
+  }
+
+  .logo-center {
+    margin: 0 auto;
   }
 
   #cartList {
     margin: 0 0 0 auto;
+  }
+
+  .display-none,
+  .display-none2 {
+    display: none;
+  }
+
+  .display {
+    display: block;
   }
 }
 </style>

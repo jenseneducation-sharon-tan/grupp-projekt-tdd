@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-
     <Header v-bind:products="products" />
 
     <div class="catchphrase">
