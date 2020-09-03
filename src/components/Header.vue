@@ -2,7 +2,11 @@
   <div id="header">
     <router-link to="/">
       <!-- <img class="logo" src="@/assets/logo.png" alt="logo" /> -->
-      <span class="logo-text">FruktHem.se</span>
+      <span
+        class="logo-text"
+        :class="{ 'center-logo': $route.path === '/thank-you' }"
+        >FruktHem.se</span
+      >
     </router-link>
     <SearchBar v-bind:products="products" />
     <CartList v-bind:products="products" />
@@ -19,6 +23,9 @@ export default {
     SearchBar,
   },
   props: ["products"],
+  data: () => ({
+    centerLogo: false,
+  }),
 };
 </script>
 
@@ -44,6 +51,10 @@ export default {
     .logo {
       width: 45px;
       height: 45px;
+    }
+
+    .center-logo {
+      font-size: 100px;
     }
 
     .logo-text {
