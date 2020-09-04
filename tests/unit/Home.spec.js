@@ -12,23 +12,23 @@ describe("Home", () => {
         image: "",
         price: 23,
         unit: "kg",
-        count: 0
-      }
-    ]
+        count: 0,
+      },
+    ],
   };
-  it("should renders data from main.js", async () => {
+  it("should renders data from main.js", /*async*/ () => {
     const vm = new Vue({
       el: "#app",
-      data: data
+      data: data,
     });
     console.log(data);
     /* vm.$data === data; */
     const wrapper = mount(Home, { vm });
     console.log(wrapper);
-    await window.trigger("keyup");
+    // await window.trigger("keyup");
     let findProduct = wrapper.findComponent(ProductList);
     console.log(findProduct);
-    let findFruit = findProduct.findAll(".allFruits").wrappers;
+    let findFruit = findProduct.findAll("#allFruits").wrappers;
     console.log(findFruit);
     let elementCount = findFruit.length;
     expect(elementCount).toBe(data.products.length);
