@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "@/scss/main.scss";
 #contact {
   height: 100vh;
   display: flex;

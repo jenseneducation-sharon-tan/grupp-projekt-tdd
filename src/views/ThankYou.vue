@@ -29,7 +29,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "@/scss/main.scss";
 
 #thank-you {
   height: 100vh;
