@@ -7,15 +7,13 @@
         type="text"
         placeholder="Sök vara i e-handeln"
         v-model="userInput"
-        @click="showList"
+        @keyup="showList"
       />
       <button class="search-btn" @click="showMatch"></button>
     </div>
     <div class="dropDownList" v-show="isVisible & (filteredFruits.length > 0)">
       <ul class="fruitList" v-if="isVisible">
-        <li v-for="product in filteredFruits" :key="product.id">
-          {{ product.name }}
-        </li>
+        <li v-for="product in filteredFruits" :key="product.id">{{ product.name }}</li>
       </ul>
     </div>
     <div class="searchResult" v-if="noMatch">
@@ -25,7 +23,7 @@
       </h4>
       <div class="message">
         Tyvärr hittade vi inga produkter som matchar din sökning "{{
-          userInput
+        userInput
         }}"
       </div>
     </div>
@@ -35,10 +33,9 @@
 <script>
 export default {
   props: ["products"],
-  data: function() {
+  data: function () {
     return {
       userInput: "",
-      isActive: false,
       isVisible: false,
       noMatch: false,
     };
@@ -53,7 +50,11 @@ export default {
   methods: {
     showList() {
       this.noMatch = false;
-      this.isVisible = !this.isVisible;
+      if (this.userInput) {
+        this.isVisible = !this.isVisible;
+        return this.filteredFruits;
+      }
+
       this.userInput = "";
     },
     showMatch() {
