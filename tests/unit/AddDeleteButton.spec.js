@@ -5,7 +5,7 @@ describe("AddDeleteButton", () => {
   let wrapper, product, product2,products,cart
   beforeEach(() => {
     product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 0 };
-    product2 = { name: "Banan", id: 2, price: 33, unit: "kg", count: 0 };
+    product2 = { name: "Ananas", id: 2, price: 33, unit: "kg", count: 0 };
     cart =[] 
     products =[product,product2] 
     const FakeAppVue = {
@@ -49,4 +49,20 @@ describe("AddDeleteButton", () => {
     let actual = product.count;
     expect(actual).toBe(expectedValue);
   });
-});
+   // testa cart 
+   it("should add to cart when clicked addbutton", async () => {
+     
+    const button = wrapper.find("#add");
+    await button.trigger("click");
+    expect(cart).toContainEqual(product); 
+  });
+
+it("should remove from cart when clicked deletebutton", async () => {
+     cart.push(product)
+    const button = wrapper.find("#minus");
+    await button.trigger("click");
+    expect(cart).not.toContainEqual(product); 
+  });
+
+
+}); 
