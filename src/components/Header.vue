@@ -1,13 +1,13 @@
 <template>
   <div id="header">
-    <a
+    <span
       class="back"
-      href="/"
+      @click="$router.push('/')"
       v-if="$route.path != '/'"
       v-bind:class="{
         'display-none': $route.path == '/thank-you',
       }"
-      >&#8810;&nbsp; Till butiken</a
+      >&#8810;&nbsp; Till butiken</span
     >
 
     <router-link
