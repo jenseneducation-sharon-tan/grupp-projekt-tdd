@@ -12,9 +12,9 @@
             </div>
             <div class="item-title">{{ product.name }}</div>
             <div class="price">{{ product.price }}/{{ product.unit }}</div>
-            <AddDeleteButton v-bind:product="product" />
+            <AddDeleteButton v-bind:id="product.id" />
             <div class="item-price">{{ product.price * product.count }}kr</div>
-            <DeleteItem v-bind:cart="cart" />
+            <DeleteItem v-bind:id="product.id" v-on:send-id="getId" />
           </div>
         </li>
       </ul>
@@ -40,11 +40,16 @@ export default {
     return {
       title: "Varukorg",
       totalValue: 0,
-      total: 0,
+      total: 0
     };
   },
   props: ["cart"],
-  methods: {},
+  methods: {
+    getId(id) {
+      let itemId = id;
+      this.$emit("send-item", itemId);
+    }
+  },
   computed: {
     /*  totalPrice(product) {
       let total = this.total;
@@ -59,7 +64,7 @@ export default {
       let totalValue = this.totalValue;
       if (cart.length > 0) {
         totalValue = 0;
-        cart.forEach((product) => {
+        cart.forEach(product => {
           totalValue += product.price * product.count;
         });
 
@@ -67,8 +72,8 @@ export default {
       } else {
         return 0;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 

@@ -5,7 +5,7 @@
       <div class="fruitName">{{ product.name }}</div>
       <div class="price">{{ product.price }} ,00 /{{ product.unit }}</div>
     </router-link>
-    <AddDeleteButton v-bind:product="product" />
+    <AddDeleteButton v-bind:id="product.id" />
   </div>
 </template>
 

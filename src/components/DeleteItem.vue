@@ -1,25 +1,22 @@
 <template>
   <div class="delete">
-    <img class="deleteIcon" src="@/assets/trashcan.svg" alt="delete" @click="removeProduct()" />
+    <img
+      class="deleteIcon"
+      src="@/assets/trashcan.svg"
+      alt="delete"
+      @click="$emit('send-id', id)"
+    />
   </div>
 </template>
 
 <script>
+//import { component } from "vue/types/umd";
 export default {
-  props: ["cart"],
+  props: ["id"],
 
-  methods: {
-    removeProduct(id) {
-      let cart = this.cart;
-      console.log(cart);
-      let index = cart.findIndex((item) => item.id === id);
-      console.log(index);
-      cart.splice(index, 1);
-    },
-  },
+  methods: {}
 };
 </script>
-
 
 <style lang="scss" scoped>
 .delete {

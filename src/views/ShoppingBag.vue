@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Header />
-    <CartItem v-bind:cart="cart" />
+    <CartItem v-bind:cart="cart" v-on:send-item="deleteItem" />
 
     <Footer />
   </div>
@@ -18,13 +18,18 @@ export default {
   components: {
     CartItem,
     Header,
-    Footer,
+    Footer
   },
-  methods: {},
+  methods: {
+    deleteItem(id) {
+      let item = this.cart.findIndex(item => item.id === id);
+      this.cart.splice(item, 1);
+    }
+  },
   computed: {
     cart() {
       return this.$root.$data.cart;
-    },
-  },
+    }
+  }
 };
 </script>

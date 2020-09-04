@@ -1,7 +1,7 @@
 <template>
-  <div id="click">
+  <div>
     <img src="@/assets/minus.svg" alt="minus" @click="down()" id="minus" />
-    <p class="count">{{ product.count }} st<p>
+    <h6 class="count">{{ this.product.count }} st</h6>
 
     <img src="@/assets/add.svg" alt="add" @click="increment()" id="add" />
   </div>
@@ -10,15 +10,15 @@
 
 <script>
 export default {
-  props: ["product"],
+  props: ["id"],
 
   methods: {
     increment() {
       /*  this.product.count++; */
       let cart = this.$root.$data.cart;
 
-      if (cart.find((i) => i.id === this.product.id)) {
-        let index = cart.findIndex((i) => i.id === this.product.id);
+      if (cart.find(i => i.id === this.product.id)) {
+        let index = cart.findIndex(i => i.id === this.product.id);
         cart[index].count++;
         this.product.count = cart[index].count;
         console.log("added another item");
@@ -30,26 +30,32 @@ export default {
           image: this.product.image,
           price: this.product.price,
           unit: this.product.unit,
-          count: this.product.count,
+          count: this.product.count
         };
         console.log("Item added");
         this.$root.$data.cart.push(addItem);
       }
     },
     down() {
-      /*  if (this.product.count > 0) {
-        this.product.count--;
-      } */
       let cart = this.$root.$data.cart;
-      let index = cart.findIndex((item) => item.id === this.product.id);
-      cart[index].count--;
-      this.product.count = cart[index].count;
-      if (cart[index].count == 0) {
-        cart.splice(index, 1);
-        this.product.count = 0;
+      let index = cart.findIndex(item => item.id === this.product.id);
+      if (this.product.count > 0) {
+        cart[index].count--;
+        this.product.count = cart[index].count;
       }
-    },
+      if (this.product.count == 0) {
+        cart[index].count == 0;
+        cart.splice(index, 1);
+      }
+    }
   },
+  computed: {
+    product() {
+      let products = this.$root.$data.products;
+      let product = products.find(item => item.id === this.id);
+      return product;
+    }
+  }
   /* computed: {
     productCount: function() {
       let cart = this.$root.$data.cart;
@@ -62,4 +68,34 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import "../scss/main.scss";
+
+#click {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px;
+  padding-bottom: 8px;
+
+  img {
+    cursor: pointer;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+#minus {
+  &:hover {
+    transform: rotate(10deg);
+  }
+}
+
+#add {
+  &:hover {
+    transform: rotate(10deg);
+  }
+}
+</style>

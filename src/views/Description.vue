@@ -1,22 +1,12 @@
 <template>
   <div>
-    <Header v-bind:products="products" />
-    <div class="wrapp-info">
-      <div class="inner">
-        <div class="info-P">
-          <img v-bind:src="product.image" />
-        </div>
-        <div class="wrappInfo">
-          <div class="name">{{ product.name }}</div>
-          <div class="price1">{{ product.price }} ,00 /{{ product.unit }}</div>
-          <div class="button1">
-            <AddDeleteButton v-bind:product="product" />
-          </div>
-        </div>
-      </div>
+    <Header />
+    <div id="backBtnDiv">
+      <button id="backHome">Till hem</button>
     </div>
+    <Product v-bind:product="product" />
     <div class="info-div">
-      <p>This is a good eco {{product.name}}</p>
+      <p>This is a good eco {{ product.name }}</p>
     </div>
     <Footer />
   </div>
@@ -36,9 +26,6 @@ export default {
     product() {
       let id = this.$route.params.id;
       return this.$root.$data.products.find(product => product.id == id);
-    },
-    products() {
-      return this.$root.$data.products;
     }
   }
 };
@@ -93,5 +80,11 @@ export default {
   height: 10vh;
   background: $yellow;
   padding: 1rem;
+}
+#backBtnDiv {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  padding-left: 2rem;
 }
 </style>
