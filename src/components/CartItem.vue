@@ -25,7 +25,9 @@
       <router-link to="/">
         <button class="continueShopping">Fortsätt Handla</button>
       </router-link>
-      <button class="tillKassa">Till Kassan</button>
+
+      <button class="tillKassa" @click="youPaid">Till Kassan</button>
+  
     </div>
   </div>
 </template>
@@ -48,6 +50,11 @@ export default {
     getId(id) {
       let itemId = id;
       this.$emit("send-item", itemId);
+    },
+    youPaid(){
+      this.$root.$data.cart = [];
+      this.$root.$data.products.forEach(p => p.count = 0)
+     this.$router.push("/thank-you");
     }
   },
   computed: {
