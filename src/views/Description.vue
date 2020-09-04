@@ -16,7 +16,7 @@
       </div>
     </div>
     <div class="info-div">
-      <p>This is a good eco {{product.name}}</p>
+      <p>This is a good eco {{ product.name }}</p>
     </div>
     <Footer />
   </div>
@@ -93,5 +93,11 @@ export default {
   height: 10vh;
   background: $yellow;
   padding: 1rem;
+}
+#backBtnDiv {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  padding-left: 2rem;
 }
 </style>
