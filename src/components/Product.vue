@@ -2,9 +2,7 @@
   <div class="fruit">
     <router-link v-bind:to="'/description/' + product.id">
       <img v-bind:src="product.image" />
-      <div class="fruitName">
-        {{ product.name }}
-      </div>
+      <div class="fruitName">{{ product.name }}</div>
       <div class="price">{{ product.price }} ,00 /{{ product.unit }}</div>
     </router-link>
     <AddDeleteButton v-bind:id="product.id" />
@@ -32,6 +30,10 @@ export default {
   flex-direction: column;
   box-shadow: 1px 1px 8px #888888;
   width: 240px;
+
+  // &:hover {
+  //   transform: scale(1.05);
+  // }
 
   a {
     text-decoration: none;

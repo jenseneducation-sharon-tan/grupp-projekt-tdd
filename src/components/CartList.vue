@@ -34,8 +34,6 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/main.scss";
 .bag {
-  position: absolute;
-  z-index: 999;
   top: 20px;
   right: 20px;
 }
@@ -74,7 +72,7 @@ export default {
 
 //animation
 
-@-webkit-keyframes wiggle {
+@keyframes wiggle {
   0% {
     -webkit-transform: rotateZ(0);
     transform: rotateZ(0);
