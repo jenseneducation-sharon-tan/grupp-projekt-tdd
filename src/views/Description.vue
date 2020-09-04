@@ -1,10 +1,20 @@
 <template>
   <div>
-    <Header />
-    <div id="backBtnDiv">
-      <button id="backHome">Till hem</button>
+    <Header v-bind:products="products" />
+    <div class="wrapp-info">
+      <div class="inner">
+        <div class="info-P">
+          <img v-bind:src="product.image" />
+        </div>
+        <div class="wrappInfo">
+          <div class="name">{{ product.name }}</div>
+          <div class="price1">{{ product.price }} ,00 /{{ product.unit }}</div>
+          <div class="button1">
+            <AddDeleteButton v-bind:id="product.id" />
+          </div>
+        </div>
+      </div>
     </div>
-    <Product v-bind:product="product" />
     <div class="info-div">
       <p>This is a good eco {{ product.name }}</p>
     </div>
@@ -22,10 +32,15 @@ export default {
     Header,
     Footer
   },
+
   computed: {
+
     product() {
       let id = this.$route.params.id;
       return this.$root.$data.products.find(product => product.id == id);
+    },
+    products() {
+      return this.$root.$data.products;
     }
   }
 };

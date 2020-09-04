@@ -24,11 +24,17 @@ export default {
     deleteItem(id) {
       let item = this.cart.findIndex(item => item.id === id);
       this.cart.splice(item, 1);
+      let product = this.products.find(p => p.id === id)
+       product.count = 0
     }
   },
   computed: {
     cart() {
       return this.$root.$data.cart;
+    },
+    products(){
+      return this.$root.$data.products;
+
     }
   }
 };
