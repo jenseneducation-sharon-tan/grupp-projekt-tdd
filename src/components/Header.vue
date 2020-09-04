@@ -80,6 +80,7 @@ export default {
   .back {
     color: $dark-gray;
     font-size: 1rem;
+    cursor: pointer;
   }
 
   a {

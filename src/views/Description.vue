@@ -10,7 +10,7 @@
           <div class="name">{{ product.name }}</div>
           <div class="price1">{{ product.price }} ,00 /{{ product.unit }}</div>
           <div class="button1">
-            <AddDeleteButton v-bind:product="product" />
+            <AddDeleteButton v-bind:id="product.id" />
           </div>
         </div>
       </div>
@@ -32,7 +32,9 @@ export default {
     Header,
     Footer
   },
+
   computed: {
+
     product() {
       let id = this.$route.params.id;
       return this.$root.$data.products.find(product => product.id == id);
