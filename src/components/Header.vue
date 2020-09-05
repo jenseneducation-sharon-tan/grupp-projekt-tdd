@@ -7,8 +7,7 @@
       v-bind:class="{
         'display-none': $route.path == '/thank-you',
       }"
-      >&#8810;&nbsp; Till butiken</span
-    >
+    >&#8810;&nbsp; Till butiken</span>
 
     <router-link
       to="/"
@@ -23,8 +22,7 @@
         v-bind:class="{
           'logo-text': $route.path == '/',
         }"
-        >FruktHem.se</span
-      >
+      >FruktHem.se</span>
     </router-link>
     <SearchBar
       v-bind:products="products"

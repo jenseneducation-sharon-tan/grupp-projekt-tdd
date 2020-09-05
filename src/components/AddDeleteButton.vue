@@ -16,8 +16,8 @@ export default {
       /*  this.product.count++; */
       let cart = this.$root.$data.cart;
 
-      if (cart.find(i => i.id === this.product.id)) {
-        let index = cart.findIndex(i => i.id === this.product.id);
+      if (cart.find((i) => i.id === this.product.id)) {
+        let index = cart.findIndex((i) => i.id === this.product.id);
         cart[index].count++;
         this.product.count = cart[index].count;
         console.log("added another item");
@@ -29,7 +29,7 @@ export default {
           image: this.product.image,
           price: this.product.price,
           unit: this.product.unit,
-          count: this.product.count
+          count: this.product.count,
         };
         console.log("Item added");
         this.$root.$data.cart.push(addItem);
@@ -37,8 +37,10 @@ export default {
     },
     down() {
       let cart = this.$root.$data.cart;
+
       let index = cart.findIndex(item => item.id === this.product.id);
       if (index === -1) return
+
       if (this.product.count > 0) {
         cart[index].count--;
         this.product.count = cart[index].count;
@@ -47,15 +49,15 @@ export default {
         cart[index].count == 0;
         cart.splice(index, 1);
       }
-    }
+    },
   },
   computed: {
     product() {
       let products = this.$root.$data.products;
-      let product = products.find(item => item.id === this.id);
+      let product = products.find((item) => item.id === this.id);
       return product;
-    }
-  }
+    },
+  },
   /* computed: {
     productCount: function() {
       let cart = this.$root.$data.cart;

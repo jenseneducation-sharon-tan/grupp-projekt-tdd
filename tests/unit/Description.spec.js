@@ -14,4 +14,4 @@ describe("Description", () => {
   });
 });
 
-/*const $route = { path: 'http://www.example-path.com/' } const wrapper = shallowMount(Component, {   mocks: {     $route   } }) expect(wrapper.vm.$route.path).toBe($route.path)*/
+const $route = { path: 'http://www.example-path.com/' } const wrapper = shallowMount(Component, {   mocks: {     $route   } }) expect(wrapper.vm.$route.path).toBe($route.path)

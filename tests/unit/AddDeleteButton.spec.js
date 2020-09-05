@@ -2,7 +2,9 @@ import { shallowMount, mount } from "@vue/test-utils";
 import AddDeleteButton from "@/components/AddDeleteButton.vue";
 
 describe("AddDeleteButton", () => {
+
   let wrapper1, wrapper2, product, product2,products,cart
+
   beforeEach(() => {
     product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 0 };
     product2 = { name: "Ananas", id: 2, price: 33, unit: "kg", count: 0 };
@@ -52,28 +54,4 @@ describe("AddDeleteButton", () => {
     let actual = product.count;
     expect(actual).toBe(expectedValue);
   });
-   // testa cart 
-   it("should add to cart when clicked addbutton", async () => {
-     
-    const button = wrapper1.find("#add");
-    await button.trigger("click");
-    expect(cart).toContainEqual(product); 
-  });
 
-  it("should add one banan och one ananas to cart when clicked två olika addbutton", async () => {
-     const expected = 2
-    const button1 = wrapper1.find("#add");
-    await button1.trigger("click");
-    const button2 = wrapper2.find("#add");
-    await button2.trigger("click");
-    expect(cart.length).toBe(expected); 
-  });
-it("should remove from cart when clicked deletebutton", async () => {
-     cart.push(product)
-    const button = wrapper1.find("#minus");
-    await button.trigger("click");
-    expect(cart).not.toContainEqual(product); 
-  });
-
-
-}); 
