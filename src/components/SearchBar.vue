@@ -51,7 +51,7 @@ export default {
     showList() {
       this.noMatch = false;
       if (this.userInput) {
-        this.isVisible = !this.isVisible;
+        this.isVisible = true;
         return this.filteredFruits;
       }
 
@@ -67,6 +67,7 @@ export default {
 
       if (productArr.includes(capInput)) {
         //this.isVisible = false;  --> to show only banan pic (need to work on this)
+
         this.noMatch = false;
       } else {
         this.noMatch = true;
@@ -80,7 +81,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "@/scss/main.scss";
 
 .search {
   display: none;

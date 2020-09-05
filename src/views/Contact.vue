@@ -5,11 +5,11 @@
       <h2>Kontakta oss</h2>
       <div class="contact">
         <div class="mail">
-          <span>E-post: </span>
-          <a href="mailto:mailus@fruktshop.com"> mailus@fruktshop.com</a>
+          <span>E-post:</span>
+          <a href="mailto:mailus@fruktshop.com">mailus@fruktshop.com</a>
         </div>
         <div class="call">
-          <span>Telefon: </span>
+          <span>Telefon:</span>
           <a>072xxxxxxx</a>
         </div>
       </div>
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "../scss/main.scss";
 #contact {
   height: 100vh;
   display: flex;

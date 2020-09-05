@@ -11,8 +11,7 @@
           v-for="routes in links"
           v-bind:key="routes.id"
           :to="`${routes.page}`"
-          >{{ routes.text }}</router-link
-        >
+        >{{ routes.text }}</router-link>
       </nav>
       <ProductList v-bind:products="products" />
     </div>
@@ -62,7 +61,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "@/scss/main.scss";
 
 .catchphrase {
   background-image: url("../assets/fruits_wide.png");
@@ -73,8 +72,8 @@ export default {
   justify-content: center;
 
   h2 {
-    //color: $white;
-    color: #ffffff;
+    color: $white;
+    /* color: #ffffff; */
     margin: auto 0;
     font-size: 5rem;
   }

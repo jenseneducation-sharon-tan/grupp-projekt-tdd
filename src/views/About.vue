@@ -35,7 +35,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "../scss/main.scss";
 #about {
   height: 100vh;
   display: flex;
