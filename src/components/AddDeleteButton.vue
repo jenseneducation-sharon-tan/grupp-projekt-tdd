@@ -37,7 +37,10 @@ export default {
     },
     down() {
       let cart = this.$root.$data.cart;
-      let index = cart.findIndex((item) => item.id === this.product.id);
+
+      let index = cart.findIndex(item => item.id === this.product.id);
+      if (index === -1) return
+
       if (this.product.count > 0) {
         cart[index].count--;
         this.product.count = cart[index].count;
