@@ -3,11 +3,11 @@
     <h2>Kontakta oss</h2>
     <div class="contact">
       <div class="mail">
-        <img src="@/assets/mail.svg" alt="" />
+        <img src="@/assets/mail.svg" alt />
         <a href="mailto:mailus@fruktshop.com">mailus@fruktshop.com</a>
       </div>
       <div class="call">
-        <img src="@/assets/call.svg" alt="" />
+        <img src="@/assets/call.svg" alt />
         <a>072xxxxxxx</a>
       </div>
     </div>
@@ -20,7 +20,7 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "@/scss/main.scss";
 
 #footer {
   background: $green;

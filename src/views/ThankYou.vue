@@ -2,12 +2,8 @@
   <div id="thank-you">
     <Header />
     <main>
-      <p>
-        Din beställning är på väg!
-      </p>
-      <p class="tack">
-        Tack!
-      </p>
+      <p>Din beställning är på väg!</p>
+      <p class="tack">Tack!</p>
       <hr />
       <router-link to="/" tag="button" id="button">Till butiken</router-link>
     </main>
@@ -29,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "@/scss/main.scss";
 
 #thank-you {
   height: 100vh;
