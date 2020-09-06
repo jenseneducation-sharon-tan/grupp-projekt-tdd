@@ -22,9 +22,7 @@ describe("SearchBar", () => {
   });
 
   it("should get list as props from parent ", async () => {
-    const wrapper = mount(Header, {
-      propsData: { products },
-    });
+    const wrapper = mount(Header, { propsData: { products } });
 
     const input = wrapper.find("input");
 
@@ -38,21 +36,11 @@ describe("SearchBar", () => {
     expect(elementCount).toBe(products.length);
   });
 
-  it("should display the list when click on search bar", async () => {
-    const clickedInput = wrapper.find("input");
-
-    await clickedInput.trigger("click");
-
-    const listExist = wrapper.find(".fruitList").exists();
-
-    expect(listExist).toBe(true);
-  });
-
   it("should have 'B' to filter out 'Banan', 'Blåbär' and 'Jordgubbar", async () => {
     const input = wrapper.find("input");
 
-    await input.trigger("click");
     await input.setValue("B");
+    await input.trigger("keyup.enter");
 
     let results = wrapper.findAll("ul > li").wrappers;
 
@@ -67,8 +55,8 @@ describe("SearchBar", () => {
   it("should have 'b' to filter out 'Banan','Blåbär' and 'Jordgubbar", async () => {
     const input = wrapper.find("input");
 
-    await input.trigger("click");
     await input.setValue("b");
+    await input.trigger("keyup.enter");
 
     let results = wrapper.findAll("ul > li").wrappers;
 
@@ -83,8 +71,8 @@ describe("SearchBar", () => {
   it("should have 'NaN' to filter out 'Banan' and 'Ananas'", async () => {
     const input = wrapper.find("input");
 
-    await input.trigger("click");
     await input.setValue("NaN");
+    await input.trigger("keyup.enter");
 
     let results = wrapper.findAll("ul > li").wrappers;
 
@@ -93,6 +81,19 @@ describe("SearchBar", () => {
 
     expect(hasBanana && hasPineapple).toBe(true);
     expect(results.length).toBe(2);
+  });
+
+  it("should not display list when key in 'z' on search bar", async () => {
+    const input = wrapper.find("input");
+
+    await input.setValue("z");
+    await input.trigger("keyup.enter");
+
+    const listHasFruit = wrapper.findAll("ul > li").wrappers;
+
+    const noMatchFirstLetter = listHasFruit.length;
+
+    expect(noMatchFirstLetter).toBe(0);
   });
 
   it("should display no match message 'Sökresultat: 'applesin' Tyvärr hittade vi inga produkter som matchar din sökning 'applesin'' when search for 'applesin'", async () => {
@@ -117,11 +118,11 @@ describe("SearchBar", () => {
   it("should NOT display error message when search for 'Banan'", async () => {
     const input = wrapper.find("input");
 
-    await input.trigger("click");
+    await input.setValue("Banan");
+    await input.trigger("keyup.enter");
 
     const searchBtn = wrapper.find(".search-btn");
 
-    await input.setValue("Banan");
     await searchBtn.trigger("click");
 
     let results = wrapper.findAll("ul > li").wrappers;
@@ -137,11 +138,11 @@ describe("SearchBar", () => {
   it("should NOT display error message when search for 'ananas'", async () => {
     const input = wrapper.find("input");
 
-    await input.trigger("click");
+    await input.setValue("ananas");
+    await input.trigger("keyup.enter");
 
     const searchBtn = wrapper.find(".search-btn");
 
-    await input.setValue("ananas");
     await searchBtn.trigger("click");
 
     let results = wrapper.findAll("ul > li").wrappers;

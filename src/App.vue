@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss">
-@import "./scss/main";
+@import "./scss/main.scss";
 
 #app {
   -webkit-font-smoothing: antialiased;
