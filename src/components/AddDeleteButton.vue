@@ -5,6 +5,7 @@
 
     <img src="@/assets/add.svg" alt="add" @click="increment()" id="add" />
   </div>
+  
 </template>
 
 <script>
@@ -91,13 +92,13 @@ export default {
 
 #minus {
   &:hover {
-    transform: scale(0.8);
+    transform: rotate(10deg);
   }
 }
 
 #add {
   &:hover {
-    transform: scale(1.3);
+    transform: rotate(10deg);
   }
 }
 </style>

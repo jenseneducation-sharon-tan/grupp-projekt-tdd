@@ -19,15 +19,16 @@
         </li>
       </ul>
     </div>
-
+    <hr />
     <h3 class="total-price">Att betala:{{ totalAmount }} kr</h3>
     <div class="button">
       <router-link to="/">
         <button class="continueShopping">Fortsätt Handla</button>
       </router-link>
 
-      <button class="tillKassa" @click="youPaid" v-if="cart.length>0">Till Kassan</button>
-  
+      <button class="tillKassa" @click="youPaid" v-if="cart.length > 0">
+        Till Kassan
+      </button>
     </div>
   </div>
 </template>
@@ -43,7 +44,6 @@ export default {
       title: "Varukorg",
       totalValue: 0,
       total: 0,
-      
     };
   },
   props: ["cart"],
@@ -52,11 +52,11 @@ export default {
       let itemId = id;
       this.$emit("send-item", itemId);
     },
-    youPaid(){
+    youPaid() {
       this.$root.$data.cart = [];
-      this.$root.$data.products.forEach(p => p.count = 0)
-     this.$router.push("/thank-you");
-    }
+      this.$root.$data.products.forEach((p) => (p.count = 0));
+      this.$router.push("/thank-you");
+    },
   },
   computed: {
     /*  totalPrice(product) {
@@ -72,7 +72,7 @@ export default {
       let totalValue = this.totalValue;
       if (cart.length > 0) {
         totalValue = 0;
-        cart.forEach(product => {
+        cart.forEach((product) => {
           totalValue += product.price * product.count;
         });
 
@@ -80,8 +80,8 @@ export default {
       } else {
         return 0;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
