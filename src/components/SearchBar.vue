@@ -47,7 +47,7 @@ export default {
         return this.filteredFruits;
       }
 
-      this.userInput = "";
+      //this.userInput = "";
     },
     showMatch() {
       if (this.filteredFruits.length > 0) {
