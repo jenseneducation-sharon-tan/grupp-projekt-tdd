@@ -54,6 +54,7 @@ export default {
     },
     youPaid() {
       this.$root.$data.cart = [];
+      
       this.$root.$data.products.forEach((p) => (p.count = 0));
       this.$router.push("/thank-you");
     },

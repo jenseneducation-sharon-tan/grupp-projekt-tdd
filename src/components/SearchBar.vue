@@ -39,30 +39,36 @@ export default {
   },
   methods: {
     showList() {
-      this.noMatch = false;
-      if (this.userInput) {
+      //this.noMatch = false;
+      this.showMatch()
+      if (this.userInput === "") {
+        eventBus.$emit("fruitMatch", this.userInput);
+        return this.products
+
+      }else {
         this.isVisible = true;
         eventBus.$emit("fruitMatch", this.userInput);
         return this.filteredFruits;
       }
 
-      this.userInput = "";
+      //this.userInput = "";
     },
     showMatch() {
-      let productArr = this.products.map((product) => {
+      /*let productArr = this.products.map((product) => {
         return product.name;
       });
 
       let capInput =
-        this.userInput.charAt(0).toUpperCase() + this.userInput.substr(1);
+        this.userInput.charAt(0).toUpperCase() + this.userInput.substr(1);*/
 
-      if (productArr.includes(capInput)) {
+      if (this.filteredFruits.length > 0/*productArr.includes(capInput)*/) {
         this.isVisible = false; // --> to show only searched pic
         this.noMatch = false;
       } else {
         this.noMatch = true;
-        eventBus.$emit("noMatch", this.noMatch);
+        
       }
+      eventBus.$emit("noMatch", this.noMatch);
     },
     away() {
       this.isVisible = false;
