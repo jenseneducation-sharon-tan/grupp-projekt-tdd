@@ -31,33 +31,33 @@ export default {
     ProductList,
     Header,
 
-    Footer,
+    Footer
   },
   computed: {
     products() {
-      console.log(this.$root.$data.products);
+      //console.log(this.$root.$data.products);
       return this.$root.$data.products;
-    },
+    }
   },
   data: () => ({
     links: [
       {
         id: 0,
         text: "Frukter",
-        page: "/",
+        page: "/"
       },
       {
         id: 1,
         text: "Om oss",
-        page: "/about",
+        page: "/about"
       },
       {
         id: 2,
         text: "Kontakt",
-        page: "/contact",
-      },
-    ],
-  }),
+        page: "/contact"
+      }
+    ]
+  })
 };
 </script>
 
