@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <!--<Header v-bind:products="products" />-->
+    <Header v-bind:products="products" />
 
     <div class="catchphrase">
       <h2>Alltid 100% ekologiskt!</h2>
