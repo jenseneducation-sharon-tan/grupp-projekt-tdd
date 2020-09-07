@@ -13,6 +13,8 @@ import blueberry from "./assets/blueberry.svg";
 
 Vue.config.productionTip = false;
 
+export const eventBus = new Vue();
+
 new Vue({
   router,
 

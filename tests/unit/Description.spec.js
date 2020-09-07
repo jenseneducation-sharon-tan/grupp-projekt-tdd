@@ -1,4 +1,4 @@
-import { mount, RouterLinkStub } from "@vue/test-utils";
+/* import { mount, RouterLinkStub } from "@vue/test-utils";
 import Description from "../../src/views/Description.vue";
 
 describe("Description", () => {
@@ -15,3 +15,4 @@ describe("Description", () => {
 });
 
 const $route = { path: 'http://www.example-path.com/' } const wrapper = shallowMount(Component, {   mocks: {     $route   } }) expect(wrapper.vm.$route.path).toBe($route.path)
+ */

@@ -29,15 +29,14 @@ export default {
   components: {
     ProductList,
     Header,
-
     Footer,
   },
   computed: {
     products() {
-      console.log(this.$root.$data.products);
       return this.$root.$data.products;
     },
   },
+
   data: () => ({
     links: [
       {

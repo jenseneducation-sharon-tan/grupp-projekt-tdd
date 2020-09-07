@@ -16,21 +16,11 @@
         <li v-for="product in filteredFruits" :key="product.id">{{ product.name }}</li>
       </ul>
     </div>
-    <div class="searchResult" v-if="noMatch">
-      <h4>
-        Sökresultat:
-        <span>"{{ userInput }}"</span>
-      </h4>
-      <div class="message">
-        Tyvärr hittade vi inga produkter som matchar din sökning "{{
-        userInput
-        }}"
-      </div>
-    </div>
   </div>
 </template>
 
 <script>
+import { eventBus } from "../main.js";
 export default {
   props: ["products"],
   data: function () {
@@ -52,6 +42,7 @@ export default {
       this.noMatch = false;
       if (this.userInput) {
         this.isVisible = true;
+        eventBus.$emit("fruitMatch", this.userInput);
         return this.filteredFruits;
       }
 
@@ -66,11 +57,11 @@ export default {
         this.userInput.charAt(0).toUpperCase() + this.userInput.substr(1);
 
       if (productArr.includes(capInput)) {
-        //this.isVisible = false;  --> to show only banan pic (need to work on this)
-
+        this.isVisible = false; // --> to show only searched pic
         this.noMatch = false;
       } else {
         this.noMatch = true;
+        eventBus.$emit("noMatch", this.noMatch);
       }
     },
     away() {
