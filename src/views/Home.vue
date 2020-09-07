@@ -1,10 +1,6 @@
 <template>
   <div class="home">
-    <Header
-      v-bind:products="products"
-      v-on:get-match="setMatch"
-      v-on:no-match="setMessage"
-    />
+    <Header v-bind:products="products" v-on:get-match="setMatch" v-on:no-match="setMessage" />
 
     <div class="catchphrase">
       <h2>Alltid 100% ekologiskt!</h2>
@@ -15,8 +11,7 @@
           v-for="routes in links"
           v-bind:key="routes.id"
           :to="`${routes.page}`"
-          >{{ routes.text }}</router-link
-        >
+        >{{ routes.text }}</router-link>
       </nav>
       <ProductList
         v-bind:products="products"
@@ -38,10 +33,12 @@ export default {
   components: {
     ProductList,
     Header,
+
     Footer,
   },
   computed: {
     products() {
+      //console.log(this.$root.$data.products);
       return this.$root.$data.products;
     },
   },

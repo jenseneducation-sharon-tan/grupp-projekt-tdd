@@ -17,7 +17,7 @@ describe("Home", () => {
         image: "",
         price: 23,
         unit: "kg",
-        count: 0,
+        count: 0
       },
       {
         name: "Ananas",
@@ -25,7 +25,7 @@ describe("Home", () => {
         image: "",
         price: 15,
         unit: "st",
-        count: 0,
+        count: 0
       },
       {
         name: "Avokado",
@@ -33,16 +33,16 @@ describe("Home", () => {
         image: "",
         price: 10,
         unit: "st",
-        count: 0,
-      },
-    ],
+        count: 0
+      }
+    ]
   };
 
   it("should get data from Home.vue in ProductList.vue", () => {
     const Parent = {
       data() {
         return data;
-      },
+      }
     };
     const wrapper = mount(Home, {
       localVue,
@@ -51,8 +51,8 @@ describe("Home", () => {
       stubs: {
         Header: true,
         Footer: true,
-        RouterLink: RouterLinkStub,
-      },
+        RouterLink: RouterLinkStub
+      }
     });
     let findProductList = wrapper.findComponent(ProductList);
     let productlistProps = findProductList.props();
@@ -65,7 +65,7 @@ describe("Home", () => {
     const Parent = {
       data() {
         return data;
-      },
+      }
     };
     const wrapper = mount(Home, {
       localVue,
@@ -74,8 +74,8 @@ describe("Home", () => {
       stubs: {
         Header: true,
         Footer: true,
-        RouterLink: RouterLinkStub,
-      },
+        RouterLink: RouterLinkStub
+      }
     });
     let finProductList = wrapper.findComponent(ProductList);
 

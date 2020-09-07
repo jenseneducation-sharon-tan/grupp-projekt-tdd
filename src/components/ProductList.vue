@@ -1,10 +1,6 @@
 <template>
   <div id="allFruits">
-    <Product
-      v-for="product in filteredFruit"
-      :key="product.id"
-      v-bind:product="product"
-    />
+    <Product v-for="product in filteredFruit" :key="product.id" v-bind:product="product" />
     <div class="searchResult" v-if="noMatch">
       <h2>
         Sökresultat:
@@ -12,7 +8,7 @@
       </h2>
       <div class="message">
         Tyvärr hittade vi inga produkter som matchar din sökning "{{
-          searchName
+        searchName
         }}"
       </div>
     </div>
