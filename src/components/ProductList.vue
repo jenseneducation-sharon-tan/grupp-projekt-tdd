@@ -21,24 +21,13 @@
 
 <script>
 import Product from "../components/Product.vue";
-/* import { eventBus } from "../main.js"; */
 
 export default {
   components: {
     Product,
   },
-  props: ["products"],
-  data: function() {
-    return {
-      searchName: "",
-      noMatch: false,
-    };
-  },
+  props: ["products", "searchName", "noMatch"],
 
-  created() {
-    /* eventBus.$on("fruitMatch", (name) => (this.searchName = name));
-    eventBus.$on("noMatch", (event) => (this.noMatch = event)); */
-  },
   computed: {
     filteredFruit() {
       return this.products.filter((product) => {
