@@ -56,11 +56,11 @@ export default {
 
   data: () => ({
     links: [
-      {
+      /* {
         id: 0,
         text: "Frukter",
         page: "/",
-      },
+      }, */
       {
         id: 1,
         text: "Om oss",
