@@ -13,17 +13,19 @@
     </div>
     <div class="dropDownList" v-show="isVisible & (filteredFruits.length > 0)">
       <ul class="fruitList" v-if="isVisible">
-        <li v-for="product in filteredFruits" :key="product.id">{{ product.name }}</li>
+        <li v-for="product in filteredFruits" :key="product.id">
+          {{ product.name }}
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { eventBus } from "../main.js";
+/* import { eventBus } from "../main.js"; */
 export default {
   props: ["products"],
-  data: function () {
+  data: function() {
     return {
       userInput: "",
       isVisible: false,
@@ -42,7 +44,7 @@ export default {
       this.noMatch = false;
       if (this.userInput) {
         this.isVisible = true;
-        eventBus.$emit("fruitMatch", this.userInput);
+        /* eventBus.$emit("fruitMatch", this.userInput); */
         return this.filteredFruits;
       }
 
@@ -61,7 +63,7 @@ export default {
         this.noMatch = false;
       } else {
         this.noMatch = true;
-        eventBus.$emit("noMatch", this.noMatch);
+        /*  eventBus.$emit("noMatch", this.noMatch); */
       }
     },
     away() {

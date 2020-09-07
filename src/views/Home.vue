@@ -11,7 +11,8 @@
           v-for="routes in links"
           v-bind:key="routes.id"
           :to="`${routes.page}`"
-        >{{ routes.text }}</router-link>
+          >{{ routes.text }}</router-link
+        >
       </nav>
       <ProductList v-bind:products="products" />
     </div>

@@ -1,6 +1,10 @@
 <template>
   <div id="allFruits">
-    <Product v-for="product in filteredFruit" :key="product.id" v-bind:product="product" />
+    <Product
+      v-for="product in filteredFruit"
+      :key="product.id"
+      v-bind:product="product"
+    />
     <div class="searchResult" v-if="noMatch">
       <h2>
         Sökresultat:
@@ -8,7 +12,7 @@
       </h2>
       <div class="message">
         Tyvärr hittade vi inga produkter som matchar din sökning "{{
-        searchName
+          searchName
         }}"
       </div>
     </div>
@@ -17,14 +21,14 @@
 
 <script>
 import Product from "../components/Product.vue";
-import { eventBus } from "../main.js";
+/* import { eventBus } from "../main.js"; */
 
 export default {
   components: {
     Product,
   },
   props: ["products"],
-  data: function () {
+  data: function() {
     return {
       searchName: "",
       noMatch: false,
@@ -32,8 +36,8 @@ export default {
   },
 
   created() {
-    eventBus.$on("fruitMatch", (name) => (this.searchName = name));
-    eventBus.$on("noMatch", (event) => (this.noMatch = event));
+    /* eventBus.$on("fruitMatch", (name) => (this.searchName = name));
+    eventBus.$on("noMatch", (event) => (this.noMatch = event)); */
   },
   computed: {
     filteredFruit() {
