@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header v-bind:products="products" />
+    <!--<Header v-bind:products="products" />-->
 
     <div class="catchphrase">
       <h2>Alltid 100% ekologiskt!</h2>
@@ -39,6 +39,7 @@ export default {
       return this.$root.$data.products;
     }
   },
+
   data: () => ({
     links: [
       {
@@ -62,7 +63,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/scss/main";
+@import "@/scss/main.scss";
 
 .catchphrase {
   background-image: url("../assets/fruits_wide.png");
@@ -73,8 +74,8 @@ export default {
   justify-content: center;
 
   h2 {
-    //color: $white;
-    color: #ffffff;
+    color: $white;
+    /* color: #ffffff; */
     margin: auto 0;
     font-size: 5rem;
   }

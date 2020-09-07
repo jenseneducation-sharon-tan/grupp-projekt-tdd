@@ -2,7 +2,7 @@
   <div class="bag">
     <router-link to="/ShoppingBag">
       <div class="counter">
-        <!-- <p class="counter__num">{{ counter }}</p> -->
+        <p class="counter__num">{{ counter }}</p>
       </div>
       <div class="cartWrapper">
         <img class="cartIcon" src="@/assets/shopping-cart.svg" alt="Bag/Cart" />
@@ -24,7 +24,7 @@ export default {
   /* computed: {
     counter() {
       let total = 0;
-      this.$root.$data.products.map(product => (total += product.count));
+      this.$root.$data.cart.map((product) => (total += product.count));
       return total;
     }
   } */
@@ -34,8 +34,6 @@ export default {
 <style lang="scss" scoped>
 @import "../scss/main.scss";
 .bag {
-  position: absolute;
-  z-index: 999;
   top: 20px;
   right: 20px;
 }
@@ -74,7 +72,7 @@ export default {
 
 //animation
 
-@-webkit-keyframes wiggle {
+/* @-webkit-keyframes wiggle {
   0% {
     -webkit-transform: rotateZ(0);
     transform: rotateZ(0);
@@ -121,5 +119,5 @@ export default {
     -webkit-transition: rotateZ(0);
     transition: rotateZ(0);
   }
-}
+} */
 </style>

@@ -2,6 +2,7 @@ import { mount } from "@vue/test-utils";
 import Home from "../../src/views/Home.vue";
 import ProductList from "@/components/ProductList.vue";
 import Product from "@/components/Product.vue";
+
 describe("Home", () => {
   let data = {
     products: [
@@ -24,7 +25,10 @@ describe("Home", () => {
     };
     const wrapper = mount(Home, { parentComponent: Parent });
     let finProductList = wrapper.findComponent(ProductList);
+    let productlistProps = finProductList.props();
+    console.log(productlistProps);
     let findAllFruit = finProductList.findComponent(Product);
+    console.log(findAllFruit.props());
     let fruitList = findAllFruit.findAll(".fruit");
     let elementCount = fruitList.length;
     expect(elementCount).toBe(data.products.length);

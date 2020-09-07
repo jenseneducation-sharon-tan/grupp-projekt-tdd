@@ -21,7 +21,14 @@ describe("ProductList", () => {
       },
       { name: "Päron", id: 8, image: "", price: 23, unit: "kg", count: 0 },
     ];
-    wrapper = mount(ProductList, { propsData: { products } });
+    wrapper = mount(ProductList, {
+      propsData: { products },
+      stubs: {
+        "router-link": true,
+        Header: true,
+        AddDeleteButton: true,
+      },
+    });
   });
 
   it("should have to show  8 products  when rendering", async () => {

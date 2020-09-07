@@ -13,11 +13,15 @@ import blueberry from "./assets/blueberry.svg";
 
 Vue.config.productionTip = false;
 
+export const eventBus = new Vue();
+
 new Vue({
   router,
 
   el: "#app",
   data: {
+    cart: [],
+
     products: [
       { name: "Banan", id: 1, image: banana, price: 23, unit: "kg", count: 0 },
       {

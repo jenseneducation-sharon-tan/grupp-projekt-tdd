@@ -1,7 +1,8 @@
 <template>
   <div class="home">
     <Header />
-    <CartItem v-bind:product="product" />
+    <CartItem v-bind:cart="cart" v-on:send-item="deleteItem" />
+
     <Footer />
   </div>
 </template>
@@ -17,36 +18,24 @@ export default {
   components: {
     CartItem,
     Header,
-    Footer,
+    Footer
   },
-
-  /* methods: {
-    cart() {
-      /* if (this.$root.$data.products.find((product)=> product.id == this.$route.params.id)){ 
-      let index = this.$root.$data.products.findIndex(
-        (product) => product.id == this.$route.params.id
-      );
-
-      return this.$root.$data.products[index].count++;
-    }, */
-
+  methods: {
+    deleteItem(id) {
+      let item = this.cart.findIndex(item => item.id === id);
+      this.cart.splice(item, 1);
+      let product = this.products.find(p => p.id === id)
+       product.count = 0
+    }
+  },
   computed: {
-    product() {
-      return this.$root.$data.products;
+    cart() {
+      return this.$root.$data.cart;
     },
-    /*  product() {
-      
-      let index = this.$root.$data.products.findIndex(
-        (product) => product.id == this.$route.params.id
-      );
-      return this.$root.$data.products[index].count++;
-    }, 
-  },
-   
-      product() {
-        let id = this.$route.params.id;
-        return this.$root.$data.products.find((product) => product.id == id);
-      },*/
-  },
+    products(){
+      return this.$root.$data.products;
+
+    }
+  }
 };
 </script>
