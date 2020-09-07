@@ -48,6 +48,11 @@ describe("CartItem", () => {
     expect(wrapper.find(".tillKassa").exists()).toBe(expected);
   });
 
+  it("should appear 'Till kassan' button when cart is more than 0", async () => {
+    const expected = true;
+    expect(wrapper.find(".tillKassa").exists()).toBe(true);
+  });
+
   it("should be empty i cart when clicking on 'Till kassan", async () => {
     //Arrange
     const expected = 0;
@@ -58,5 +63,14 @@ describe("CartItem", () => {
 
     //Assert
     expect(actual).toBe(expected);
+  });
+
+  it("should renders a router-link tag with to /", async () => {
+    //Arrange
+    const expectedUrl = "/";
+    const button = wrapper.findComponent(RouterLinkStub);
+
+    //Assert
+    expect(button.props("to")).toBe(expectedUrl);
   });
 });
