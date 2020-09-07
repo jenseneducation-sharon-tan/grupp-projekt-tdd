@@ -15,7 +15,7 @@ describe("Product", () => {
     image: "",
     price: 23,
     unit: "kg",
-    count: 0
+    count: 0,
   };
   let wrapper;
 
@@ -26,13 +26,12 @@ describe("Product", () => {
       propsData: { product: product },
       stubs: {
         RouterLink: RouterLinkStub,
-        AddDeleteButton: true
-      }
+        AddDeleteButton: true,
+      },
     });
   });
 
   it("should go to /description/1", () => {
-    console.log(wrapper.props());
     const expected = "/description/1";
     const link = wrapper.findComponent(RouterLinkStub);
     expect(link.props("to")).toBe(expected);

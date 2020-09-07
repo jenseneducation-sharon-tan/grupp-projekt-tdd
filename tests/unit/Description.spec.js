@@ -68,7 +68,7 @@ describe("Product", () => {
   });
 
   it("should display product info", () => {
-    console.log(wrapper.vm.$route);
+    //console.log(wrapper.vm.$route);
     //expect(wrapper.vm.$route.params.id).toBe("1");
 
     //console.log(wrapper.props());

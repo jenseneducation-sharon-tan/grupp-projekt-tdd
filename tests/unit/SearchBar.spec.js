@@ -1,11 +1,6 @@
-import {
-  shallowMount,
-  mount,
-  createLocalVue,
-  RouterLinkStub,
-} from "@vue/test-utils";
+import { shallowMount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
 import SearchBar from "@/components/SearchBar.vue";
-import Header from "@/components/Header.vue";
+
 import VueRouter from "vue-router";
 
 const localVue = createLocalVue();
@@ -21,16 +16,9 @@ describe("SearchBar", () => {
       { name: "Ananas", id: 3, image: "", price: 15, unit: "st", count: 0 },
       { name: "Blåbär", id: 4, image: "", price: 45, unit: "kg", count: 0 },
     ];
-    const Parent = {
-      data() {
-        return {
-          products,
-        };
-      },
-    };
+
     wrapper = shallowMount(SearchBar, {
       propsData: { products },
-      parentComponent: Parent,
       localVue,
       router,
       stubs: {
@@ -46,31 +34,6 @@ describe("SearchBar", () => {
     expect(hasPlaceholder).toBe("Sök vara i e-handeln");
   });
 
-  /* it("should get list as props from parent ", async () => {
-    const wrapper = mount(Header, {
-      propsData: { products },
-      stubs: {
-        "router-link": true,
-      },
-      mocks: {
-        $route: {
-          path: "/",
-        },
-      },
-    });
-
-    const input = wrapper.find("input");
-
-    await input.trigger("click");
-
-    const childComponent = wrapper.findComponent(SearchBar);
-    const fruitList = childComponent.findAll("ul > li").wrappers;
-
-    let elementCount = fruitList.length;
-
-    expect(elementCount).toBe(products.length);
-  });
- */
   it("should have 'B' to filter out 'Banan', 'Blåbär' and 'Jordgubbar", async () => {
     const input = wrapper.find("input");
 
@@ -145,11 +108,6 @@ describe("SearchBar", () => {
   });
 
   it("should emit noMatch payload", async () => {
-    /*  const input = wrapper.find("input");
- 
-    await input.setValue("banan");
-    await input.trigger("keyup.enter"); */
-
     wrapper.vm.$emit("noMatch");
 
     await wrapper.vm.$nextTick();
