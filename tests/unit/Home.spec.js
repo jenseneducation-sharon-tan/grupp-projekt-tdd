@@ -9,6 +9,7 @@ localVue.use(VueRouter);
 const router = new VueRouter();
 
 describe("Home", () => {
+  let wrapper;
   let data = {
     products: [
       {
@@ -17,7 +18,7 @@ describe("Home", () => {
         image: "",
         price: 23,
         unit: "kg",
-        count: 0
+        count: 0,
       },
       {
         name: "Ananas",
@@ -25,7 +26,7 @@ describe("Home", () => {
         image: "",
         price: 15,
         unit: "st",
-        count: 0
+        count: 0,
       },
       {
         name: "Avokado",
@@ -33,16 +34,33 @@ describe("Home", () => {
         image: "",
         price: 10,
         unit: "st",
-        count: 0
-      }
-    ]
+        count: 0,
+      },
+    ],
   };
+  const Parent = {
+    data() {
+      return data;
+    },
+  };
+  beforeEach(() => {
+    wrapper = mount(Home, {
+      localVue,
+      router,
+      parentComponent: Parent,
+      stubs: {
+        Header: true,
+        Footer: true,
+        RouterLink: RouterLinkStub,
+      },
+    });
+  });
 
   it("should get data from Home.vue in ProductList.vue", () => {
-    const Parent = {
+    /*  const Parent = {
       data() {
         return data;
-      }
+      },
     };
     const wrapper = mount(Home, {
       localVue,
@@ -51,9 +69,9 @@ describe("Home", () => {
       stubs: {
         Header: true,
         Footer: true,
-        RouterLink: RouterLinkStub
-      }
-    });
+        RouterLink: RouterLinkStub,
+      },
+    }); */
     let findProductList = wrapper.findComponent(ProductList);
     let productlistProps = findProductList.props();
     let productListLength = productlistProps.products.length;
@@ -62,10 +80,10 @@ describe("Home", () => {
   });
 
   it("should get 'Banan' as product name from Productlist.vue ", () => {
-    const Parent = {
+    /*  const Parent = {
       data() {
         return data;
-      }
+      },
     };
     const wrapper = mount(Home, {
       localVue,
@@ -74,9 +92,9 @@ describe("Home", () => {
       stubs: {
         Header: true,
         Footer: true,
-        RouterLink: RouterLinkStub
-      }
-    });
+        RouterLink: RouterLinkStub,
+      },
+    }); */
     let finProductList = wrapper.findComponent(ProductList);
 
     let findAllFruit = finProductList.findComponent(Product);
@@ -85,4 +103,24 @@ describe("Home", () => {
 
     expect(fruitName).toBe("Banan");
   });
+
+  /* it("should renders a router-link tag with to /about", async () => {
+    //Arrange
+   const expectedUrl = "/about"; 
+  	const navLink = wrapper.find("nav"); 
+
+    const routerLink = wrapper.findAll("router-link"); //array
+
+    await routerLink.setData({ text: "Om oss" });
+    console.log("router:", routerLink);
+
+    /*   let hasOmOss = routerLink.some((link) => {
+      console.log(1);
+      link.text() === "Om oss";
+      console.log(2);
+    }); 
+
+    //Assert
+    expect(routerLink.at(0).vm.text).toBe("Om oss");
+  });*/
 });
