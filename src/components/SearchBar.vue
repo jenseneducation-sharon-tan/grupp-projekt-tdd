@@ -41,11 +41,16 @@ export default {
   methods: {
     showList() {
       this.showMatch();
-      if (this.userInput) {
-        this.isVisible = true;
+      if (this.userInput === "") {
+         this.$emit("fruitMatch", this.userInput)
+        return this.products
+       
+      }
+        else{this.isVisible = true;
         this.$emit("fruitMatch", this.userInput);
         return this.filteredFruits;
-      }
+        }
+      
 
       //this.userInput = "";
     },
