@@ -42,7 +42,7 @@ describe("CartItem", () => {
 
   it("should not appear 'Till kassan' button when cart is empty", async () => {
     const expected = false;
-    // await wrapper.setProps({ cart: [] });
+    await wrapper.setProps({ cart: [] });
     console.log(wrapper.props().cart);
 
     expect(wrapper.find(".tillKassa").exists()).toBe(expected);
