@@ -21,8 +21,16 @@ describe("SearchBar", () => {
       { name: "Ananas", id: 3, image: "", price: 15, unit: "st", count: 0 },
       { name: "Blåbär", id: 4, image: "", price: 45, unit: "kg", count: 0 },
     ];
+    const Parent = {
+      data() {
+        return {
+          products,
+        };
+      },
+    };
     wrapper = shallowMount(SearchBar, {
       propsData: { products },
+      parentComponent: Parent,
       localVue,
       router,
       stubs: {
@@ -38,11 +46,16 @@ describe("SearchBar", () => {
     expect(hasPlaceholder).toBe("Sök vara i e-handeln");
   });
 
-  it("should get list as props from parent ", async () => {
+  /* it("should get list as props from parent ", async () => {
     const wrapper = mount(Header, {
       propsData: { products },
       stubs: {
         "router-link": true,
+      },
+      mocks: {
+        $route: {
+          path: "/",
+        },
       },
     });
 
@@ -57,7 +70,7 @@ describe("SearchBar", () => {
 
     expect(elementCount).toBe(products.length);
   });
-
+ */
   it("should have 'B' to filter out 'Banan', 'Blåbär' and 'Jordgubbar", async () => {
     const input = wrapper.find("input");
 
@@ -118,18 +131,32 @@ describe("SearchBar", () => {
     expect(noMatchFirstLetter).toBe(0);
   });
 
-  /* it("should emit userInput to product list when click on search button ", async () => {
+  it("should emit userInput on search textfield", async () => {
     const input = wrapper.find("input");
 
     await input.setValue("banan");
     await input.trigger("keyup.enter");
 
-    const searchButton = wrapper.find(".search-btn");
-    await searchButton.trigger("click");
+    wrapper.vm.$emit("fruitMatch");
 
-    wrapper.vm.$emit();
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.emitted().fruitMatch[0]).toEqual(["banan"]);
   });
- */
+
+  it("should emit noMatch payload", async () => {
+    /*  const input = wrapper.find("input");
+ 
+    await input.setValue("banan");
+    await input.trigger("keyup.enter"); */
+
+    wrapper.vm.$emit("noMatch");
+
+    await wrapper.vm.$nextTick();
+
+    expect(wrapper.emitted().noMatch).toBeTruthy();
+  });
+
   /* it("should display no match message 'Sökresultat: 'applesin' Tyvärr hittade vi inga produkter som matchar din sökning 'applesin'' when search for 'applesin'", async () => {
     const input = wrapper.find("input");
 

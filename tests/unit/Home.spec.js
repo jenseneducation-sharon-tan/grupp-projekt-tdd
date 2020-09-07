@@ -54,8 +54,8 @@ describe("Home", () => {
         RouterLink: RouterLinkStub,
       },
     });
-    let finProductList = wrapper.findComponent(ProductList);
-    let productlistProps = finProductList.props();
+    let findProductList = wrapper.findComponent(ProductList);
+    let productlistProps = findProductList.props();
     let productListLength = productlistProps.products.length;
 
     expect(productListLength).toBe(data.products.length);

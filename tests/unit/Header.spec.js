@@ -1,6 +1,8 @@
-/* import { shallowMount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
+import { shallowMount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
 
-import Header from "@/views/Header.vue";
+import Header from "@/components/Header.vue";
+import SearchBar from "@/components/SearchBar.vue";
+import CartList from "@/components/CartList.vue";
 import VueRouter from "vue-router";
 
 const localVue = createLocalVue();
@@ -20,4 +22,22 @@ describe("Header", () => {
       },
     });
   });
-}); */
+
+  it("should render search bar and cartlist on page load at '/' ", async () => {
+    let searchBar = wrapper.findComponent(SearchBar);
+
+    let cartList = wrapper.findComponent(CartList);
+
+    expect(searchBar).toBeTruthy();
+    expect(cartList).toBeTruthy();
+  });
+
+  it("should NOT render search bar when it is not '/' ", async () => {
+    let searchBar = wrapper.findComponent(SearchBar);
+
+    let cartList = wrapper.findComponent(CartList);
+
+    expect(searchBar).toBeTruthy();
+    expect(cartList).toBeTruthy();
+  });
+});
