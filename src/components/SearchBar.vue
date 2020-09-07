@@ -22,7 +22,6 @@
 </template>
 
 <script>
-/* import { eventBus } from "../main.js"; */
 export default {
   props: ["products"],
   data: function() {
@@ -41,30 +40,23 @@ export default {
   },
   methods: {
     showList() {
-      this.noMatch = false;
+      this.showMatch();
       if (this.userInput) {
         this.isVisible = true;
-        /* eventBus.$emit("fruitMatch", this.userInput); */
+        this.$emit("fruitMatch", this.userInput);
         return this.filteredFruits;
       }
 
       this.userInput = "";
     },
     showMatch() {
-      let productArr = this.products.map((product) => {
-        return product.name;
-      });
-
-      let capInput =
-        this.userInput.charAt(0).toUpperCase() + this.userInput.substr(1);
-
-      if (productArr.includes(capInput)) {
-        this.isVisible = false; // --> to show only searched pic
+      if (this.filteredFruits.length > 0) {
+        this.isVisible = false;
         this.noMatch = false;
       } else {
         this.noMatch = true;
-        /*  eventBus.$emit("noMatch", this.noMatch); */
       }
+      this.$emit("noMatch", this.noMatch);
     },
     away() {
       this.isVisible = false;

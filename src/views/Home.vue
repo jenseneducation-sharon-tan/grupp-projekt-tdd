@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <Header v-bind:products="products" />
+    <Header
+      v-bind:products="products"
+      v-on:get-match="setMatch"
+      v-on:no-match="setMessage"
+    />
 
     <div class="catchphrase">
       <h2>Alltid 100% ekologiskt!</h2>
@@ -14,7 +18,11 @@
           >{{ routes.text }}</router-link
         >
       </nav>
-      <ProductList v-bind:products="products" />
+      <ProductList
+        v-bind:products="products"
+        v-bind:searchName="searchName"
+        v-bind:noMatch="noMatch"
+      />
     </div>
     <Footer />
   </div>
@@ -37,6 +45,14 @@ export default {
       return this.$root.$data.products;
     },
   },
+  methods: {
+    setMatch(event) {
+      this.searchName = event;
+    },
+    setMessage(event) {
+      this.noMatch = event;
+    },
+  },
 
   data: () => ({
     links: [
@@ -56,6 +72,8 @@ export default {
         page: "/contact",
       },
     ],
+    searchName: "",
+    noMatch: false,
   }),
 };
 </script>
