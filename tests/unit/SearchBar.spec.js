@@ -1,6 +1,16 @@
-import { shallowMount, mount } from "@vue/test-utils";
+import {
+  shallowMount,
+  mount,
+  createLocalVue,
+  RouterLinkStub,
+} from "@vue/test-utils";
 import SearchBar from "@/components/SearchBar.vue";
 import Header from "@/components/Header.vue";
+import VueRouter from "vue-router";
+
+const localVue = createLocalVue();
+localVue.use(VueRouter);
+const router = new VueRouter();
 
 describe("SearchBar", () => {
   let wrapper, products;
@@ -13,6 +23,11 @@ describe("SearchBar", () => {
     ];
     wrapper = shallowMount(SearchBar, {
       propsData: { products },
+      localVue,
+      router,
+      stubs: {
+        RouterLink: RouterLinkStub,
+      },
     });
   });
 
@@ -103,6 +118,18 @@ describe("SearchBar", () => {
     expect(noMatchFirstLetter).toBe(0);
   });
 
+  /* it("should emit userInput to product list when click on search button ", async () => {
+    const input = wrapper.find("input");
+
+    await input.setValue("banan");
+    await input.trigger("keyup.enter");
+
+    const searchButton = wrapper.find(".search-btn");
+    await searchButton.trigger("click");
+
+    wrapper.vm.$emit();
+  });
+ */
   /* it("should display no match message 'Sökresultat: 'applesin' Tyvärr hittade vi inga produkter som matchar din sökning 'applesin'' when search for 'applesin'", async () => {
     const input = wrapper.find("input");
 
