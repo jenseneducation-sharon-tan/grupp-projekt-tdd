@@ -13,17 +13,18 @@
     </div>
     <div class="dropDownList" v-show="isVisible & (filteredFruits.length > 0)">
       <ul class="fruitList" v-if="isVisible">
-        <li v-for="product in filteredFruits" :key="product.id">{{ product.name }}</li>
+        <li v-for="product in filteredFruits" :key="product.id">
+          {{ product.name }}
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { eventBus } from "../main.js";
 export default {
   props: ["products"],
-  data: function () {
+  data: function() {
     return {
       userInput: "",
       isVisible: false,
@@ -39,30 +40,28 @@ export default {
   },
   methods: {
     showList() {
-      this.noMatch = false;
-      if (this.userInput) {
-        this.isVisible = true;
-        eventBus.$emit("fruitMatch", this.userInput);
-        return this.filteredFruits;
+      this.showMatch();
+      if (this.userInput === "") {
+         this.$emit("fruitMatch", this.userInput)
+        return this.products
+       
       }
+        else{this.isVisible = true;
+        this.$emit("fruitMatch", this.userInput);
+        return this.filteredFruits;
+        }
+      
 
-      this.userInput = "";
+      //this.userInput = "";
     },
     showMatch() {
-      let productArr = this.products.map((product) => {
-        return product.name;
-      });
-
-      let capInput =
-        this.userInput.charAt(0).toUpperCase() + this.userInput.substr(1);
-
-      if (productArr.includes(capInput)) {
-        this.isVisible = false; // --> to show only searched pic
+      if (this.filteredFruits.length > 0) {
+        this.isVisible = false;
         this.noMatch = false;
       } else {
         this.noMatch = true;
-        eventBus.$emit("noMatch", this.noMatch);
       }
+      this.$emit("noMatch", this.noMatch);
     },
     away() {
       this.isVisible = false;

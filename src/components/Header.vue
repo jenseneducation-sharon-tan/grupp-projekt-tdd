@@ -1,13 +1,14 @@
 <template>
-  <div id="header">
+  <div class="header">
     <span
-      class="back"
       @click="$router.push('/')"
       v-if="$route.path != '/'"
       v-bind:class="{
         'display-none': $route.path == '/thank-you',
+        back: true,
       }"
-    >&#8810;&nbsp; Till butiken</span>
+      >&#8810;&nbsp; Till butiken</span
+    >
 
     <router-link
       to="/"
@@ -22,13 +23,14 @@
         v-bind:class="{
           'logo-text': $route.path == '/',
         }"
-      >FruktHem.se</span>
+        >FruktHem.se</span
+      >
     </router-link>
     <SearchBar
       v-bind:products="products"
-      v-bind:class="{
-        display: $route.path == '/',
-      }"
+      v-bind:class="{ display: $route.path == '/' }"
+      v-on:fruitMatch="$emit('get-match', $event)"
+      v-on:noMatch="$emit('no-match', $event)"
     />
     <CartList
       class="cart"
@@ -63,7 +65,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
 
-#header {
+div.header {
   background: $green;
   height: 63px;
   width: 100%;
