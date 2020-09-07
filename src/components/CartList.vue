@@ -72,7 +72,7 @@ export default {
 
 //animation
 
-@keyframes wiggle {
+/* @-webkit-keyframes wiggle {
   0% {
     -webkit-transform: rotateZ(0);
     transform: rotateZ(0);
@@ -119,5 +119,5 @@ export default {
     -webkit-transition: rotateZ(0);
     transition: rotateZ(0);
   }
-}
+} */
 </style>

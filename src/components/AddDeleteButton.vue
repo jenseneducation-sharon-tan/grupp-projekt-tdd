@@ -37,9 +37,10 @@ export default {
     },
     down() {
       let cart = this.$root.$data.cart;
+
       let index = cart.findIndex((item) => item.id === this.product.id);
-      /*  let index = cart.findIndex((item) => item.id === this.product.id); */
       if (index === -1) return;
+
       if (this.product.count > 0) {
         cart[index].count--;
         this.product.count = cart[index].count;
@@ -90,13 +91,13 @@ export default {
 
 #minus {
   &:hover {
-    transform: scale(0.8);
+    transform: rotate(10deg);
   }
 }
 
 #add {
   &:hover {
-    transform: scale(1.3);
+    transform: rotate(10deg);
   }
 }
 </style>

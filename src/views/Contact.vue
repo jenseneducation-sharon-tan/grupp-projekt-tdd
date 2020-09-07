@@ -31,6 +31,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
+
 #contact {
   height: 100vh;
   display: flex;
