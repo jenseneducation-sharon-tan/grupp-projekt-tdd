@@ -5,7 +5,6 @@
 
     <img src="@/assets/add.svg" alt="add" @click="increment()" id="add" />
   </div>
-  
 </template>
 
 <script>
@@ -21,7 +20,7 @@ export default {
         let index = cart.findIndex((i) => i.id === this.product.id);
         cart[index].count++;
         this.product.count = cart[index].count;
-        console.log("added another item");
+        /* console.log("added another item"); */
       } else {
         this.product.count = 1;
         const addItem = {
@@ -32,15 +31,15 @@ export default {
           unit: this.product.unit,
           count: this.product.count,
         };
-        console.log("Item added");
+        /*   console.log("Item added"); */
         this.$root.$data.cart.push(addItem);
       }
     },
     down() {
       let cart = this.$root.$data.cart;
 
-      let index = cart.findIndex(item => item.id === this.product.id);
-      if (index === -1) return
+      let index = cart.findIndex((item) => item.id === this.product.id);
+      if (index === -1) return;
 
       if (this.product.count > 0) {
         cart[index].count--;

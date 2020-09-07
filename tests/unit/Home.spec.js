@@ -4,10 +4,12 @@ import Vue from "vue";
 import Home from "../../src/views/Home.vue";
 import ProductList from "@/components/ProductList.vue";
 import Product from "@/components/Product.vue";
+
+// https://www.reddit.com/r/vuejs/comments/7ych8x/how_the_hell_do_you_reference_a_computed_property/
+
 describe("Home", () => {
   let data = {
     products: [
-
       {
         name: "Banan",
         id: 1,
@@ -20,4 +22,4 @@ describe("Home", () => {
     expect(wrapper.find(RouterLinkStub).props().to).toBe("/description/1");
   }); */
   });
-});*/
+}); */
