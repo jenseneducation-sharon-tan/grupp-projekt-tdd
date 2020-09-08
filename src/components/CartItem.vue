@@ -33,7 +33,9 @@
         <button class="continueShopping">Fortsätt Handla</button>
       </router-link>
 
-      <button class="tillKassa" @click="youPaid" v-if="cart.length > 0">Till Kassan</button>
+      <button class="tillKassa" @click="youPaid" v-if="cart.length > 0">
+        Till Kassan
+      </button>
     </div>
   </div>
 </template>

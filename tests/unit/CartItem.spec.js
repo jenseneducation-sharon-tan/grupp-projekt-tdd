@@ -1,4 +1,9 @@
-import { shallowMount, RouterLinkStub, createLocalVue } from "@vue/test-utils";
+import {
+  shallowMount,
+  mount,
+  RouterLinkStub,
+  createLocalVue,
+} from "@vue/test-utils";
 import CartItem from "@/components/CartItem.vue";
 import VueRouter from "vue-router";
 
@@ -8,10 +13,12 @@ const router = new VueRouter();
 router.push("/");
 
 describe("CartItem", () => {
-  let wrapper, product, products, cart;
+  let wrapper, product, product2, product3, products, cart;
 
   beforeEach(() => {
-    product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 0 };
+    product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 1 };
+    product2 = { name: "Ananas", id: 2, price: 33, unit: "kg", count: 2 };
+    product3 = { name: "Avokado", id: 3, price: 33, unit: "kg", count: 1 };
     cart = [product];
     products = [product];
 
@@ -29,23 +36,46 @@ describe("CartItem", () => {
       parentComponent: FakeAppVue,
       stubs: {
         RouterLink: RouterLinkStub,
+        Header: true,
+        AddDeleteButton: true,
       },
       localVue,
       router,
     });
   });
 
+  it("should display total amount of cart items", async () => {
+    let wrapper;
+    let cart = [product2, product3];
+    wrapper = mount(CartItem, {
+      data: () => ({
+        totalValue: 0,
+      }),
+      propsData: { cart: cart },
+      stubs: {
+        RouterLink: RouterLinkStub,
+        Header: true,
+        AddDeleteButton: true,
+      },
+      localVue,
+      router,
+    });
+
+    const expected = "Att betala:99 kr";
+    let actual = wrapper.find(".total-price").text();
+    expect(actual).toBe(expected);
+  });
+
   it("should not appear 'Till kassan' button when cart is empty", async () => {
     const expected = false;
     await wrapper.setProps({ cart: [] });
-    /* console.log(wrapper.props().cart); */
 
     expect(wrapper.find(".tillKassa").exists()).toBe(expected);
   });
 
-  it("should appear 'Till kassan' button when cart is more than 0", async () => {
+  it("should appear 'Till kassan' button when cart is more than 0", () => {
     const expected = true;
-    expect(wrapper.find(".tillKassa").exists()).toBe(expected);
+    expect(wrapper.find(".tillKassa").exists()).toBe(true);
   });
 
   it("should be empty i cart when clicking on 'Till kassan", async () => {
@@ -60,7 +90,7 @@ describe("CartItem", () => {
     expect(actual).toBe(expected);
   });
 
-  it("should renders a router-link tag with to /", async () => {
+  it("should renders a router-link tag with to /", () => {
     //Arrange
     const expectedUrl = "/";
     const button = wrapper.findComponent(RouterLinkStub);
