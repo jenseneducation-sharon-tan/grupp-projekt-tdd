@@ -24,8 +24,9 @@
       >FruktHem.se</span>
     </router-link>
     <SearchBar
+    v-if="$route.path == '/'"
       v-bind:products="products"
-      v-bind:class="{ display: $route.path == '/' }"
+      
       v-on:fruitMatch="$emit('get-match', $event)"
       v-on:noMatch="$emit('no-match', $event)"
     />

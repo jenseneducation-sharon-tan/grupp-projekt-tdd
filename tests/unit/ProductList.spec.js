@@ -17,14 +17,7 @@ describe("ProductList", () => {
       { name: "Blåbär", id: 4, image: "", price: 45, unit: "kg", count: 0 },
       { name: "Avokado", id: 5, image: "", price: 10, unit: "st", count: 0 },
       { name: "Äpple", id: 6, image: "", price: 24.9, unit: "kg", count: 0 },
-      {
-        name: "Vindruvor grön",
-        id: 7,
-        image: "",
-        price: 30,
-        unit: "kg",
-        count: 0,
-      },
+      { name: "Vindruvor grön", id: 7, image: "", price: 30, unit: "kg", count: 0 },
       { name: "Päron", id: 8, image: "", price: 23, unit: "kg", count: 0 },
     ];
 
@@ -83,6 +76,7 @@ describe("ProductList", () => {
 
     const fruitComponent = wrapper.findComponent(Product);
 
+    console.log(fruitComponent)
     const fruitName = fruitComponent.find(".fruitName").text();
 
     expect(fruitName).toBe("Banan");

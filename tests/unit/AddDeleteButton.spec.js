@@ -8,6 +8,7 @@ describe("AddDeleteButton", () => {
     product2 = { name: "Ananas", id: 2, price: 33, unit: "kg", count: 0 };
     cart = [];
     products = [product, product2];
+    // mocka app.vue
     const FakeAppVue = {
       data() {
         return {

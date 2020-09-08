@@ -68,7 +68,7 @@ export default {
 @import "@/scss/main.scss";
 
 .search {
-  display: none;
+  /*display: none;*/
   margin: 0 40px 0 auto;
 
   button {
