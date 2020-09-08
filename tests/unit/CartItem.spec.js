@@ -1,9 +1,4 @@
-import {
-  shallowMount,
-  mount,
-  RouterLinkStub,
-  createLocalVue,
-} from "@vue/test-utils";
+import { shallowMount, RouterLinkStub, createLocalVue } from "@vue/test-utils";
 import CartItem from "@/components/CartItem.vue";
 import VueRouter from "vue-router";
 

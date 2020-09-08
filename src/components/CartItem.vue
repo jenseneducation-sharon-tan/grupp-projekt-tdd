@@ -10,10 +10,17 @@
             <div class="item-image">
               <img v-bind:src="product.image" />
             </div>
-            <div class="item-title">{{ product.name }}</div>
-            <div class="price">{{ product.price }}/{{ product.unit }}</div>
-            <AddDeleteButton v-bind:id="product.id" />
+            <div class="title-price">
+              <div class="item-title">{{ product.name }}</div>
+
+              <div class="price">{{ product.price }}/{{ product.unit }}</div>
+            </div>
+            <div class="addBtn">
+              <AddDeleteButton v-bind:id="product.id" />
+            </div>
+
             <div class="item-price">{{ product.price * product.count }}kr</div>
+
             <DeleteItem v-bind:id="product.id" v-on:send-id="getId" />
           </div>
         </li>
@@ -26,9 +33,7 @@
         <button class="continueShopping">Fortsätt Handla</button>
       </router-link>
 
-      <button class="tillKassa" @click="youPaid" v-if="cart.length > 0">
-        Till Kassan
-      </button>
+      <button class="tillKassa" @click="youPaid" v-if="cart.length > 0">Till Kassan</button>
     </div>
   </div>
 </template>
@@ -54,20 +59,12 @@ export default {
     },
     youPaid() {
       this.$root.$data.cart = [];
-      
+
       this.$root.$data.products.forEach((p) => (p.count = 0));
       this.$router.push("/thank-you");
     },
   },
   computed: {
-    /*  totalPrice(product) {
-      let total = this.total;
-      console.log(total);
-      total = product.price * product.count;
-      console.log(total);
-      return total;
-    }, */
-
     totalAmount() {
       let cart = this.cart;
       let totalValue = this.totalValue;
@@ -87,6 +84,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../scss/main.scss";
 .cart {
   margin: 20px;
   display: flex;
@@ -105,21 +103,33 @@ export default {
     height: 100px;
   }
   ul {
-    width: 85%;
+    width: 100%;
 
     & li {
       list-style: none;
       margin-bottom: 20px;
+      box-shadow: 1px 1px 8px #888888;
     }
   }
 }
 .cart-item-wrap {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr 2fr 2fr 2fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
   grid-template-rows: 50px 50px;
-  text-align: left;
+  text-align: center;
+  padding: 20px 0;
+  background: $white;
 }
 
+.title-price {
+  margin-top: 20px;
+}
+.item-price {
+  margin-top: 20px;
+}
+.addBtn {
+  margin-top: 15px;
+}
 .button {
   display: flex;
   flex-direction: row;
@@ -132,10 +142,8 @@ export default {
 .tillKassa {
   margin-top: 20px;
   margin-left: 20px;
-  width: 20px;
 }
 .continueShopping {
   margin-top: 20px;
-  width: 20px;
 }
 </style>

@@ -8,7 +8,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import CartItem from "../components/CartItem";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -18,24 +17,23 @@ export default {
   components: {
     CartItem,
     Header,
-    Footer
+    Footer,
   },
   methods: {
     deleteItem(id) {
-      let item = this.cart.findIndex(item => item.id === id);
+      let item = this.cart.findIndex((item) => item.id === id);
       this.cart.splice(item, 1);
-      let product = this.products.find(p => p.id === id)
-       product.count = 0
-    }
+      let product = this.products.find((p) => p.id === id);
+      product.count = 0;
+    },
   },
   computed: {
     cart() {
       return this.$root.$data.cart;
     },
-    products(){
+    products() {
       return this.$root.$data.products;
-
-    }
-  }
+    },
+  },
 };
 </script>

@@ -77,12 +77,11 @@ describe("Header", () => {
       router,
       parentComponent: Parent,
       stubs: {
-        Header: true,
-        Footer: true,
         RouterLink: RouterLinkStub,
       },
     });
     let findSearchBar = wrapper.findComponent(SearchBar);
+
     let searchBarProps = findSearchBar.props();
     let searchBarLength = searchBarProps.products.length;
 
@@ -90,11 +89,24 @@ describe("Header", () => {
   });
 
   it("should NOT render search bar when it is not '/' ", async () => {
-    /* let searchBar = wrapper.findComponent(SearchBar);
+    const $route = {
+      path: "/about",
+    };
 
-    let cartList = wrapper.findComponent(CartList);
+    const wrapper = shallowMount(Header, {
+      stubs: ["router-link", "router-view"],
+      mocks: {
+        $route,
+      },
+    });
 
-    expect(searchBar).toBeTruthy();
-    expect(cartList).toBeTruthy(); */
+    let searchBar = wrapper.findComponent(SearchBar);
+    
+     //console.log(searchBar)
+     // finns inte  detär rätt 
+    let navList = wrapper.vm.$route.path;
+
+    //expect(navList).not.toContain(searchBar);
+    expect(searchBar.exists()).toBeFalsy();
   });
 });

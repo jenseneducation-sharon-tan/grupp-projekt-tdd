@@ -1,4 +1,4 @@
-import { shallowMount, mount } from "@vue/test-utils";
+import { shallowMount } from "@vue/test-utils";
 import AddDeleteButton from "@/components/AddDeleteButton.vue";
 
 describe("AddDeleteButton", () => {
@@ -8,6 +8,7 @@ describe("AddDeleteButton", () => {
     product2 = { name: "Ananas", id: 2, price: 33, unit: "kg", count: 0 };
     cart = [];
     products = [product, product2];
+    // mocka app.vue
     const FakeAppVue = {
       data() {
         return {

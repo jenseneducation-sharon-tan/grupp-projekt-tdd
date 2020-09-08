@@ -7,8 +7,7 @@
         'display-none': $route.path == '/thank-you',
         back: true,
       }"
-      >&#8810;&nbsp; Till butiken</span
-    >
+    >&#8810;&nbsp; Till butiken</span>
 
     <router-link
       to="/"
@@ -17,18 +16,17 @@
         'logo-center': $route.path != '/',
       }"
     >
-      <!-- <img class="logo" src="@/assets/logo.png" alt="logo" /> -->
       <span
         class="logo"
         v-bind:class="{
           'logo-text': $route.path == '/',
         }"
-        >FruktHem.se</span
-      >
+      >FruktHem.se</span>
     </router-link>
     <SearchBar
+    v-if="$route.path == '/'"
       v-bind:products="products"
-      v-bind:class="{ display: $route.path == '/' }"
+      
       v-on:fruitMatch="$emit('get-match', $event)"
       v-on:noMatch="$emit('no-match', $event)"
     />
@@ -57,7 +55,7 @@ export default {
       return this.$root.$data.products;
     },
   },
-  // props: ["products"],
+
   data: () => ({}),
 };
 </script>
@@ -87,11 +85,6 @@ div.header {
     text-decoration: none;
     display: flex;
     align-items: center;
-
-    // .logo {
-    //   width: 45px;
-    //   height: 45px;
-    // }
 
     .logo {
       color: $white;

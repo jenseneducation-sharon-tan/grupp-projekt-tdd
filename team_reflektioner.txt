@@ -1,5 +1,0 @@
-Reflektioner
-
-1) För bred område till user story. Borde bryta ner till mindre fall
-2) Vore bra om teamet lägga till vilka komponent man jobba på till eg man kan skriva i description
-

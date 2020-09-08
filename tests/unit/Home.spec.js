@@ -9,6 +9,7 @@ localVue.use(VueRouter);
 const router = new VueRouter();
 
 describe("Home", () => {
+  let wrapper;
   let data = {
     products: [
       {
@@ -17,7 +18,7 @@ describe("Home", () => {
         image: "",
         price: 23,
         unit: "kg",
-        count: 0
+        count: 0,
       },
       {
         name: "Ananas",
@@ -25,7 +26,7 @@ describe("Home", () => {
         image: "",
         price: 15,
         unit: "st",
-        count: 0
+        count: 0,
       },
       {
         name: "Avokado",
@@ -33,27 +34,29 @@ describe("Home", () => {
         image: "",
         price: 10,
         unit: "st",
-        count: 0
-      }
-    ]
+        count: 0,
+      },
+    ],
   };
-
-  it("should get data from Home.vue in ProductList.vue", () => {
-    const Parent = {
-      data() {
-        return data;
-      }
-    };
-    const wrapper = mount(Home, {
+  const Parent = {
+    data() {
+      return data;
+    },
+  };
+  beforeEach(() => {
+    wrapper = mount(Home, {
       localVue,
       router,
       parentComponent: Parent,
       stubs: {
         Header: true,
         Footer: true,
-        RouterLink: RouterLinkStub
-      }
+        RouterLink: RouterLinkStub,
+      },
     });
+  });
+
+  it("should get data from Home.vue in ProductList.vue", () => {
     let findProductList = wrapper.findComponent(ProductList);
     let productlistProps = findProductList.props();
     let productListLength = productlistProps.products.length;
@@ -62,21 +65,6 @@ describe("Home", () => {
   });
 
   it("should get 'Banan' as product name from Productlist.vue ", () => {
-    const Parent = {
-      data() {
-        return data;
-      }
-    };
-    const wrapper = mount(Home, {
-      localVue,
-      router,
-      parentComponent: Parent,
-      stubs: {
-        Header: true,
-        Footer: true,
-        RouterLink: RouterLinkStub
-      }
-    });
     let finProductList = wrapper.findComponent(ProductList);
 
     let findAllFruit = finProductList.findComponent(Product);
