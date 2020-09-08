@@ -26,9 +26,7 @@
         <button class="continueShopping">Fortsätt Handla</button>
       </router-link>
 
-      <button class="tillKassa" @click="youPaid" v-if="cart.length > 0">
-        Till Kassan
-      </button>
+      <button class="tillKassa" @click="youPaid" v-if="cart.length > 0">Till Kassan</button>
     </div>
   </div>
 </template>
@@ -54,20 +52,12 @@ export default {
     },
     youPaid() {
       this.$root.$data.cart = [];
-      
+
       this.$root.$data.products.forEach((p) => (p.count = 0));
       this.$router.push("/thank-you");
     },
   },
   computed: {
-    /*  totalPrice(product) {
-      let total = this.total;
-      console.log(total);
-      total = product.price * product.count;
-      console.log(total);
-      return total;
-    }, */
-
     totalAmount() {
       let cart = this.cart;
       let totalValue = this.totalValue;

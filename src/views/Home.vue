@@ -8,6 +8,7 @@
     <div class="nav_main">
       <nav>
         <router-link
+          class="nav"
           v-for="routes in links"
           v-bind:key="routes.id"
           :to="`${routes.page}`"
@@ -24,7 +25,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import ProductList from "@/components/ProductList.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
@@ -38,7 +38,6 @@ export default {
   },
   computed: {
     products() {
-      //console.log(this.$root.$data.products);
       return this.$root.$data.products;
     },
   },
@@ -53,18 +52,13 @@ export default {
 
   data: () => ({
     links: [
-      /* {
-        id: 0,
-        text: "Frukter",
-        page: "/",
-      }, */
       {
-        id: 1,
+        id: 0,
         text: "Om oss",
         page: "/about",
       },
       {
-        id: 2,
+        id: 1,
         text: "Kontakt",
         page: "/contact",
       },
@@ -88,7 +82,6 @@ export default {
 
   h2 {
     color: $white;
-    /* color: #ffffff; */
     margin: auto 0;
     font-size: 5rem;
   }

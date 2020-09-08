@@ -13,9 +13,7 @@
     </div>
     <div class="dropDownList" v-show="isVisible & (filteredFruits.length > 0)">
       <ul class="fruitList" v-if="isVisible">
-        <li v-for="product in filteredFruits" :key="product.id">
-          {{ product.name }}
-        </li>
+        <li v-for="product in filteredFruits" :key="product.id">{{ product.name }}</li>
       </ul>
     </div>
   </div>
@@ -24,7 +22,7 @@
 <script>
 export default {
   props: ["products"],
-  data: function() {
+  data: function () {
     return {
       userInput: "",
       isVisible: false,
@@ -34,7 +32,7 @@ export default {
   computed: {
     filteredFruits() {
       return this.products.filter((product) => {
-        return product.name.match(new RegExp(this.userInput, "i")); // 'i' ignores case sensitive
+        return product.name.match(new RegExp(this.userInput, "i"));
       });
     },
   },
@@ -49,8 +47,6 @@ export default {
         this.$emit("fruitMatch", this.userInput);
         return this.filteredFruits;
       }
-
-      //this.userInput = "";
     },
     showMatch() {
       if (this.filteredFruits.length > 0) {

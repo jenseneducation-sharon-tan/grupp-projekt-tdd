@@ -21,13 +21,6 @@ export default {
       return total;
     },
   },
-  /* computed: {
-    counter() {
-      let total = 0;
-      this.$root.$data.cart.map((product) => (total += product.count));
-      return total;
-    }
-  } */
 };
 </script>
 
@@ -72,7 +65,7 @@ export default {
 
 //animation
 
- @keyframes wiggle {
+@keyframes wiggle {
   0% {
     -webkit-transform: rotateZ(0);
     transform: rotateZ(0);
@@ -119,5 +112,5 @@ export default {
     -webkit-transition: rotateZ(0);
     transition: rotateZ(0);
   }
-} 
+}
 </style>

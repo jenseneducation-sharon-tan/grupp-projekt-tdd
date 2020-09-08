@@ -1,9 +1,4 @@
-import {
-  mount,
-  shallowMount,
-  RouterLinkStub,
-  createLocalVue,
-} from "@vue/test-utils";
+import { mount, RouterLinkStub, createLocalVue } from "@vue/test-utils";
 import ProductList from "@/components/ProductList.vue";
 import Product from "@/components/Product.vue";
 import VueRouter from "vue-router";
@@ -13,38 +8,6 @@ localVue.use(VueRouter);
 const router = new VueRouter();
 
 describe("ProductList", () => {
-  /*   let wrapper, products;
-  beforeEach(() => {
-    products = [
-      { name: "Banan", id: 1, image: "", price: 23, unit: "kg", count: 0 },
-      { name: "Jordgubbar", id: 2, image: "", price: 99, unit: "kg", count: 0 },
-      { name: "Ananas", id: 3, image: "", price: 15, unit: "st", count: 0 },
-      { name: "Blåbär", id: 4, image: "", price: 45, unit: "kg", count: 0 },
-      { name: "Avokado", id: 5, image: "", price: 10, unit: "st", count: 0 },
-      { name: "Äpple", id: 6, image: "", price: 24.9, unit: "kg", count: 0 },
-      {
-        name: "Vindruvor grön",
-        id: 7,
-        image: "",
-        price: 30,
-        unit: "kg",
-        count: 0,
-      },
-      { name: "Päron", id: 8, image: "", price: 23, unit: "kg", count: 0 },
-    ];
-
-    /* let searchName = "applesin"; 
-    let noMatch = false;
-    wrapper = mount(ProductList, {
-      propsData: { products, /* searchName,  noMatch },
-      stubs: {
-        "router-link": true,
-        Header: true,
-        AddDeleteButton: true,
-      },
-    });
-  }); */
-
   it("should have to show  8 products  when rendering", async () => {
     let wrapper, products;
     products = [
@@ -100,32 +63,28 @@ describe("ProductList", () => {
 
   it("should only display 'Banan' product when search for 'Banan'", async () => {
     let searchName = "Banan";
-
     let wrapper, products;
     products = [
       { name: "Banan", id: 1, image: "", price: 23, unit: "kg", count: 0 },
       { name: "Jordgubbar", id: 2, image: "", price: 99, unit: "kg", count: 0 },
       { name: "Ananas", id: 3, image: "", price: 15, unit: "st", count: 0 },
     ];
-    wrapper = shallowMount(ProductList, {
+
+    wrapper = mount(ProductList, {
       propsData: { products, searchName },
       localVue,
       router,
-      RouterLink: RouterLinkStub,
-      AddDeleteButton: true,
-      Description: true,
+      stubs: {
+        RouterLink: RouterLinkStub,
+        AddDeleteButton: true,
+        Description: true,
+      },
     });
 
-    /* const fruitList = wrapper.find("#allFruits"); */
+    const fruitComponent = wrapper.findComponent(Product);
 
-    const fruitComponent = wrapper.findComponent(Product); //array
-    console.log("fruitComp", fruitComponent);
-    const fruitProduct = fruitComponent.findAll(".fruitName").at(0);
-    console.log("fruit", fruitProduct);
+    const fruitName = fruitComponent.find(".fruitName").text();
 
-    /* et hasBanana = fruitComponent.some((item) => item.text() == "Banan"); */
-
-    expect(fruitProduct).toBe("Banan");
-    /* expect(noMatchMessage.exists()).toBe(false); */
+    expect(fruitName).toBe("Banan");
   });
 });

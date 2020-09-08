@@ -1,4 +1,4 @@
-import { mount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
+import { mount, RouterLinkStub } from "@vue/test-utils";
 import Description from "../../src/views/Description.vue";
 
 describe("Product", () => {
