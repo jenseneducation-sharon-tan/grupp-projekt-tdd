@@ -1,4 +1,9 @@
-import { shallowMount, RouterLinkStub, createLocalVue } from "@vue/test-utils";
+import {
+  shallowMount,
+  mount,
+  RouterLinkStub,
+  createLocalVue,
+} from "@vue/test-utils";
 import CartItem from "@/components/CartItem.vue";
 import VueRouter from "vue-router";
 
@@ -8,11 +13,12 @@ const router = new VueRouter();
 router.push("/");
 
 describe("CartItem", () => {
-  let wrapper, product, product2, products, cart;
+  let wrapper, product, product2, product3, products, cart;
 
   beforeEach(() => {
-    product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 0 };
-    product2 = { name: "Ananas", id: 2, price: 33, unit: "kg", count: 0 };
+    product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 1 };
+    product2 = { name: "Ananas", id: 2, price: 33, unit: "kg", count: 2 };
+    product3 = { name: "Avokado", id: 3, price: 33, unit: "kg", count: 1 };
     cart = [product];
     products = [product];
 
@@ -30,6 +36,8 @@ describe("CartItem", () => {
       parentComponent: FakeAppVue,
       stubs: {
         RouterLink: RouterLinkStub,
+        Header: true,
+        AddDeleteButton: true,
       },
       localVue,
       router,
@@ -37,16 +45,30 @@ describe("CartItem", () => {
   });
 
   it("should display total amount of cart items", async () => {
-    const expected = 56;
-    await wrapper.setProps({ cart: [product, product2] });
-    let actual = wrapper.vm.totalAmount();
-    expect().toBe(expected);
+    let wrapper;
+    let cart = [product2, product3];
+    wrapper = mount(CartItem, {
+      data: () => ({
+        totalValue: 0,
+      }),
+      propsData: { cart: cart },
+      stubs: {
+        RouterLink: RouterLinkStub,
+        Header: true,
+        AddDeleteButton: true,
+      },
+      localVue,
+      router,
+    });
+
+    const expected = "Att betala:99 kr";
+    let actual = wrapper.find(".total-price").text();
+    expect(actual).toBe(expected);
   });
 
   it("should not appear 'Till kassan' button when cart is empty", async () => {
     const expected = false;
     await wrapper.setProps({ cart: [] });
-    console.log(wrapper.props().cart);
 
     expect(wrapper.find(".tillKassa").exists()).toBe(expected);
   });
