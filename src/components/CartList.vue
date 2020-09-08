@@ -1,41 +1,116 @@
 <template>
-  <div>
-      <section class="cartWrapper">
-      <img id="cartIcon" src="../assets/cart.svg" alt="Bag/Cart" />
-      <section class="lengthWrapper">
-        <!--span>{{cart.length}}</span-->
-      </section>
-      </section>
+  <div class="bag">
+    <router-link to="/ShoppingBag">
+      <div class="counter">
+        <p class="counter__num">{{ counter }}</p>
+      </div>
+      <div class="cartWrapper">
+        <img class="cartIcon" src="@/assets/shopping-cart.svg" alt="Bag/Cart" />
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  props: ["products"],
+  computed: {
+    counter() {
+      let total = 0;
+      this.products.map((product) => (total += product.count));
+      return total;
+    },
+  },
+};
 </script>
 
-<style lang ="scss" scoped>
+<style lang="scss" scoped>
+@import "../scss/main.scss";
+.bag {
+  top: 20px;
+  right: 20px;
+}
 .cartWrapper {
-  z-index: 999;
-  display: flex;
-  background: rgb(83, 204, 83);
-  border-radius: 100%;
-  margin: 1rem;
-  height: 2rem;
-  width: 2rem;
-  padding: 1rem;
-  margin-bottom: 5rem;
-  position: absolute;
-  right: 0;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
   cursor: pointer;
-  img {
-    width: 100%;
+
+  .cartIcon {
+    width: 20px;
+    height: 20px;
+    margin: 20px auto auto 5px;
   }
-  &:hover{
-      -webkit-animation:wiggle 1.5s linear infinite;
-  animation:wiggle 1.5s linear infinite;
+}
+.bag:hover {
+  -webkit-animation: wiggle 1.5s linear infinite;
+  animation: wiggle 1.5s linear infinite;
+}
+.counter {
+  width: 20px;
+  height: 20px;
+  background-color: $pink;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: 2px;
+  margin-left: 15px;
+
+  &__num {
+    color: white;
+    margin-top: 1px;
+    text-align: center;
+    font-size: 12px;
   }
 }
 
+//animation
+
+@keyframes wiggle {
+  0% {
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
+  }
+  10% {
+    -webkit-transform: rotateZ(-15deg);
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    -webkit-transition: rotateZ(10deg);
+    transition: rotateZ(10deg);
+  }
+  25% {
+    -webkit-transition: rotateZ(-10deg);
+    transition: rotateZ(-10deg);
+  }
+  30% {
+    -webkit-transition: rotateZ(6deg);
+    transition: rotateZ(6deg);
+  }
+  35% {
+    -webkit-transform: rotateZ(-4deg);
+    transform: rotateZ(-4deg);
+  }
+  40% {
+    transform: rotateZ(7deg);
+  }
+  50% {
+    transform: rotateZ(-6deg);
+  }
+  60% {
+    transform: rotateZ(10deg);
+  }
+  70% {
+    transform: rotateZ(-14deg);
+  }
+  80% {
+    transform: rotateZ(3deg);
+  }
+  90% {
+    transform: rotateZ(-7deg);
+  }
+  100% {
+    -webkit-transition: rotateZ(0);
+    transition: rotateZ(0);
+  }
+}
 </style>

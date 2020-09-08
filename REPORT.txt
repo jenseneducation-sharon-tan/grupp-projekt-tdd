@@ -1,0 +1,59 @@
+Grupp 4 FRK19S
+
+Meddlemar
+Ronghe Peng(Cindy)
+Lijuan Cheng
+Madoka Fujimaki Ahlsen
+Richa Bajpai
+Sharon Tan
+
+Github repo: https://github.com/jenseneducation-sharon-tan/grupp-projekt-tdd
+Trello: https://trello.com/b/yl3oiupr/webshoptdd
+Figma: https://www.figma.com/file/HiPe7oarx2Zad4Ey9AE3fw/Frukter?node-id=0%3A1
+Kravspec: Finns i github (kravpec.txt)
+
+Reflektioner
+
+Vad har ni lärt er av projektet?
+- Vore bra om teamet lägga till vilka komponent man jobba på till eg man kan skriva i description
+- Jobbar med agil metodology
+- Hur man skapa test fall och skriva test
+- Att tänka mer test-orienterad
+- Att läsa dokumentation
+- Att vi ska alltid fixa error meddelande i terminalen innan vi går vidare med testet
+
+Hur fördelade ni arbetet? (vem gjorde vad)
+- Vi skapade tickets och alla tog varsin ticket som man vill jobba med
+- Alla har gjort både test och css och implementation 
+
+Fundera över vilka ändringar ni skulle göra om ni skulle fortsätta med projektet i samma grupp:
+Vad skulle vi börja göra?
+- För bred område till user story. Borde bryta ner till mindre fall
+- Ha en projekt ledare 
+
+Vad skulle vi sluta göra?
+- Ska inte pusha röd test fall 
+
+Vad skulle vi fortsätta göra?
+- Dagligt standup
+- Skapa user stories
+- Förtsätt med figma och trello att ha koll på projekt
+- Lösa problem med andra i teamet
+- Skriv test innan implementationen
+
+Vilka krav var svårast respektive lättast att skriva test för?
+Svårast
+- Router test, $root, få data från child component
+
+Lättast 
+- Att product list visar rätt antal data
+- Att search bar visar placeholder
+- Att product visar rätt info
+- Att visa knappen till kassan när cart innehålla är mer än null
+- Att cart item visar rätt data/info
+
+Fanns det något ni hade tänkt göra, som ni inte hann med? Vad berodde det på?
+- Mobil vy fick vi inte jobba mer med eftersom testning tog mycket tid än forväntat
+- Fick ändra om implementationen efter testning
+
+
