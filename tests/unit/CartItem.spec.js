@@ -17,8 +17,10 @@ describe("CartItem", () => {
 
   beforeEach(() => {
     product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 1 };
+
     product2 = { name: "Ananas", id: 2, price: 33, unit: "kg", count: 2 };
     product3 = { name: "Avokado", id: 3, price: 33, unit: "kg", count: 1 };
+
     cart = [product];
     products = [product];
 
