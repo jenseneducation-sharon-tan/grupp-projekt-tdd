@@ -77,7 +77,7 @@ describe("CartItem", () => {
 
   it("should appear 'Till kassan' button when cart is more than 0", () => {
     const expected = true;
-    expect(wrapper.find(".tillKassa").exists()).toBe(true);
+    expect(wrapper.find(".tillKassa").exists()).toBe(expected);
   });
 
   it("should be empty i cart when clicking on 'Till kassan", async () => {
