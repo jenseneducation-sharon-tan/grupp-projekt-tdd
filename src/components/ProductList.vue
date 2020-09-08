@@ -27,7 +27,7 @@ export default {
   computed: {
     filteredFruit() {
       return this.products.filter((product) => {
-        return product.name.match(new RegExp(this.searchName, "i")); // 'i' ignores case sensitive
+        return product.name.match(new RegExp(this.searchName, "i"));
       });
     },
   },

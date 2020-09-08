@@ -65,14 +65,6 @@ export default {
     },
   },
   computed: {
-    /*  totalPrice(product) {
-      let total = this.total;
-      console.log(total);
-      total = product.price * product.count;
-      console.log(total);
-      return total;
-    }, */
-
     totalAmount() {
       let cart = this.cart;
       let totalValue = this.totalValue;

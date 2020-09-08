@@ -1,9 +1,4 @@
-import {
-  shallowMount,
-  mount,
-  createLocalVue,
-  RouterLinkStub,
-} from "@vue/test-utils";
+import { shallowMount, createLocalVue, RouterLinkStub } from "@vue/test-utils";
 
 import CartList from "@/components/CartList.vue";
 
@@ -15,12 +10,12 @@ const router = new VueRouter();
 router.push("/ShoppingBag");
 
 describe("CartList", () => {
-  let wrapper, product,products;
+  let wrapper, product, products;
 
   beforeEach(() => {
-	product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 0 }
-	
-    products = [product ];
+    product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 0 };
+
+    products = [product];
     const Parent = {
       data() {
         return {

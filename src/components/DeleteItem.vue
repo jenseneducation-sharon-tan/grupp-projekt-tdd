@@ -1,20 +1,14 @@
 <template>
   <div class="delete">
-    <img
-      class="deleteIcon"
-      src="@/assets/trashcan.svg"
-      alt="delete"
-      @click="$emit('send-id', id)"
-    />
+    <img class="deleteIcon" src="@/assets/trashcan.svg" alt="delete" @click="$emit('send-id', id)" />
   </div>
 </template>
 
 <script>
-//import { component } from "vue/types/umd";
 export default {
   props: ["id"],
 
-  methods: {}
+  methods: {},
 };
 </script>
 
