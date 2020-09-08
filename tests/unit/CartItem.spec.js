@@ -11,7 +11,8 @@ describe("CartItem", () => {
   let wrapper, product, products, cart;
 
   beforeEach(() => {
-    product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 0 };
+    product = { name: "Banan", id: 1, price: 23, unit: "kg", count: 1 };
+
     cart = [product];
     products = [product];
 
