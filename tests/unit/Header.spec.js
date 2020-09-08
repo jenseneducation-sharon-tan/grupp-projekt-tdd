@@ -101,10 +101,12 @@ describe("Header", () => {
     });
 
     let searchBar = wrapper.findComponent(SearchBar);
-
+    
+     //console.log(searchBar)
+     // finns inte  detär rätt 
     let navList = wrapper.vm.$route.path;
 
-    expect(navList).not.toContain(searchBar);
-    /*  expect(navList).not.toBeDefined(searchBar); */
+    //expect(navList).not.toContain(searchBar);
+    expect(searchBar.exists()).toBeFalsy();
   });
 });

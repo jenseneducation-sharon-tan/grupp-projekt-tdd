@@ -76,6 +76,7 @@ describe("ProductList", () => {
 
     const fruitComponent = wrapper.findComponent(Product);
 
+    console.log(fruitComponent)
     const fruitName = fruitComponent.find(".fruitName").text();
 
     expect(fruitName).toBe("Banan");
